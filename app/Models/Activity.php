@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'type', 'date', 'notes', 'client_id'
+    ];
+
+    protected $hidden = [
+        'paid',
+    ];
 }

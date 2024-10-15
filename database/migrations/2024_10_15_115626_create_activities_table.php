@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->enum('type', ['surf', 'windsurf', 'kayak', 'atv', 'hot air balloon']);
+            $table->unsignedBigInteger('client_id')->unique();
+            $table->timestamp('date', precision: 0);
+            $table->boolean('paid')->default(false);
+            $table->string('notes');
+            $table->tinyInteger('satisfaction')->nullable()->default(null);
             $table->timestamps();
+
+            $table->foreign('client_id')->references('id')->on('clients');
         });
     }
 
