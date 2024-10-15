@@ -21,6 +21,7 @@
                 <option value="kayak">Kayak</option>
                 <option value="atv">ATV</option>
                 <option value="hot air balloon">Hot Air Balloon</option>
+                <x-input-error :messages="$errors->createActivity->get('type')" class="mt-2" />
               </select>
         </div>
 
@@ -38,16 +39,6 @@
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Create') }}</x-primary-button>
-
-            @if (session('status') === 'activity-created')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Created.') }}</p>
-            @endif
         </div>
     </form>
 </section>

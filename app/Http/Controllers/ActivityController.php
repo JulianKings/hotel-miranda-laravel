@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activity;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ActivityController extends Controller
 {
@@ -13,7 +16,7 @@ class ActivityController extends Controller
     public function index()
     {
         return view('activities.get', [
-            'activities' => Activity::all(),
+            'activities' => Auth::user()->activities(),
         ]);
     }
 
@@ -30,10 +33,10 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validateWithBag('createActivity', [
             'type' => ['required', 'string', 'max:255'],
             'date' => ['required', 'date'],
-            'notes' => ['required', 'string', 'max:255'],
+            'notes' => ['required', 'string', 'max:255']
         ]);
 
         $activity = Activity::create([
@@ -59,7 +62,17 @@ class ActivityController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $activity = Activity::findOr($id, function () {
+            return null;
+        });
+
+        if($activity == null)
+        {
+            return redirect(route('activities.get', absolute: false));
+        } else {
+            $formattedDate = Carbon::parse($activity->date)->format('Y-m-d');
+            return view('activities.edit', ['activity' => $activity, 'formattedDate' => $formattedDate]);
+        }
     }
 
     /**
@@ -68,6 +81,30 @@ class ActivityController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validateWithBag('updateActivity',[
+            'type' => ['required', 'string', 'max:255'],
+            'date' => ['required', 'date'],
+            'notes' => ['required', 'string', 'max:255'],
+            'satisfaction' => ['required', 'integer', 'max:10', 'min:0']
+        ]);
+
+        $activity = Activity::findOr($id, function () {
+            return null;
+        });
+
+        if($activity == null)
+        {
+            return redirect(route('activities.get', absolute: false));
+        } else {
+            $activity->type = $request->input('type');
+            $activity->date = $request->input('date');
+            $activity->notes = $request->input('notes');
+            $activity->satisfaction = $request->input('satisfaction');
+
+            $activity->save();
+
+            return redirect(route('activities.get', absolute: false));
+        }
     }
 
     /**
@@ -75,6 +112,16 @@ class ActivityController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $activity = Activity::findOr($id, function () {
+            return null;
+        });
+
+        if($activity == null)
+        {
+            return redirect(route('activities.get', absolute: false));
+        } else {
+            Activity::destroy($id);
+            return redirect(route('activities.get', absolute: false));
+        }
     }
 }
