@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('activities', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
             $table->enum('type', ['surf', 'windsurf', 'kayak', 'atv', 'hot air balloon']);
             $table->unsignedBigInteger('client_id');
             $table->timestamp('date', precision: 0);
