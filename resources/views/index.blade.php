@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="./assets/logo_icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Miranda</title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./style/style.css" />
-    <link rel="stylesheet" href="./style/pages/index.css" />
-    <script type="text/javascript" src="./scripts/menu.js" defer></script> 
-    <script type="text/javascript" src="./scripts/socials.js" defer></script>
-    <script type="text/javascript" src="./scripts/datePicker.js" defer></script>    
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script> 
-    <script type="text/javascript" src="./scripts/swiper.js" defer></script>
-</head>
+@include('hotel.layout.head-component', ['styles' => $styles, 'scripts' => $scripts])
+
 <body class="content">
     <header class="header">
         <div class="header__content">

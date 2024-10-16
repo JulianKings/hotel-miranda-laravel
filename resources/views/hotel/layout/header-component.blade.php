@@ -41,11 +41,11 @@
 <header class="information-header">
     <div class="information-header__container">        
         <p class="information-header__subtitle">the ultimate luxury</p>
-        <p class="information-header__title">About Us</p>
+        <p class="information-header__title">{{$title}}</p>
         <div class="information-header__navigation">
             <a href="index">Home</a>
             <span id="separator">|</span>
-            <span>About</span>
+            <span>{{$subtitle}}</span>
         </div>
     </div>
 </header>

@@ -2,27 +2,19 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\OffersController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RoomsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/about', function () {
-    return view('hotel.about-page');
-});
-
-Route::get('/offers', function () {
-    return view('hotel.offers-page');
-});
-
-Route::get('/rooms', function () {
-    return view('hotel.rooms-page');
-});
-
-Route::get('/contact', function () {
-    return view('hotel.contact-page');
-});
+Route::get('/', [IndexController::class, 'index'])->name('hotel-index');
+Route::get('/index', [IndexController::class, 'index'])->name('hotel-index-long');
+Route::get('/about', [AboutController::class, 'index'])->name('hotel-about');
+Route::get('/offers', [OffersController::class, 'index'])->name('hotel-offers');
+Route::get('/rooms', [RoomsController::class, 'index'])->name('hotel-rooms');
+Route::get('/contact', [ContactController::class, 'index'])->name('hotel-contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

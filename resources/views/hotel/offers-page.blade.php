@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="./assets/logo_icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Miranda</title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./style/style.css" />
-    <link rel="stylesheet" href="./style/pages/offers.css" />
-    <script type="text/javascript" src="./scripts/menu.js" defer></script> 
-    <script type="text/javascript" src="./scripts/socials.js" defer></script> 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script> 
-    <script type="text/javascript" src="./scripts/swiper-offers.js" defer></script> 
-    <script type="text/javascript" src="./scripts/updateBookNow.js" defer></script> 
-</head>
+@include('hotel.layout.head-component', ['styles' => $styles, 'scripts' => $scripts])
+
 <body class="content">    
-    @include('hotel.layout.header-component')
+    @include('hotel.layout.header-component', ['title' => $title, 'subtitle' => $subtitle])
 
     <main class="offers">
         <div class="offers__item">
