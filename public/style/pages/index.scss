@@ -1,0 +1,1051 @@
+@use '../components/button.scss';
+@use '../components/facilities.scss';
+@use '../const/variables.scss' as *;
+@use '../const/mixins.scss' as *;
+
+.index {
+    overflow: hidden;
+
+    &__button-holder {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        width: 64%;
+    }
+
+    &__calendar {
+        padding: 2.25rem 1.25rem;
+        background-color: $black;
+        display: flex;
+        flex-direction: column;
+        gap: 1.88rem;
+
+        font-family: $roboto;
+        color: $white;
+        font-size: 1rem;
+        line-height: 1.17rem;
+        font-weight: 700;
+
+        &__date {
+            display: inline-block;
+            position: absolute;
+            z-index: 8;
+            width: 1.05rem;
+            height: 1.05rem;
+        }
+
+        &__datepicker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../../assets/calendar.png');
+        }
+
+        &__dateinput {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            box-sizing: border-box;
+
+            &::-webkit-calendar-picker-indicator {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+
+            }
+        }
+
+        &__construct {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.44rem;
+            width: 100%;
+        }
+
+        &__input {
+            font-weight: 400;
+            font-size: 0.88rem;
+            line-height: 1.03rem;
+            border: 0;
+            border-bottom: 0.13rem solid $brown;
+            background-color: $black;
+            padding-bottom: 1rem;
+            color: $white;
+            width: 100%;
+            padding-left: 1.5rem;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__button {
+            margin-top: 0.75rem;
+            width: 74.5%;
+        }
+    }
+
+    &__about {
+        margin-top: 3.75rem;
+        padding: 0 1.25rem;
+        padding-top: 2.38rem;
+        background-color: $lightgray;
+        padding-bottom: 10.94rem;
+
+        &__tile {
+            display: none;
+        }
+
+        &__title {
+            font-weight: 700;
+            font-size: 0.81rem;
+            line-height: 1.13rem;
+            letter-spacing: 0.17rem;
+            text-transform: uppercase;
+            color: $darkgray;
+        }
+
+        &__caption {
+            margin-top: 2rem;
+            font-family: $oldtt;
+            font-weight: 400;
+            font-size: 3.5rem;
+            line-height: 3.75rem;
+            letter-spacing: -0.07rem;
+
+        }
+
+        &__description {
+            margin-top: 1rem;
+            font-weight: 400;
+            font-size: 0.88rem;
+            line-height: 1.5rem;
+            color: $darkgray;
+        }
+
+        &__button {
+            margin-top: 1.5rem;
+            width: 64.5%;
+        }
+    }
+
+    &__image-cards {
+        position: relative;
+        @include flex-center;
+        flex-direction: column;
+        top: -7.19rem;
+        margin-bottom: -7.19rem;
+
+        &__card {
+            max-height: 37.5rem;
+            max-width: 279px;
+            margin-bottom: 2.81rem;
+        }
+
+        &__image {
+            & img {
+                height: 18.75rem;
+                width: 100%;
+                margin: 0; padding: 0;
+            }
+
+            margin: 0; padding: 0;
+            height: 18.75rem;
+        }
+
+        &__picture {
+            margin-top: 3.38rem;
+        }
+
+        &__translucent {
+            position: absolute;
+            right: 0;
+            top: 3.13rem;
+            z-index: -1;
+        }
+
+        &__title {
+            margin-top: 1.84rem;
+            font-family: $oldtt;
+            font-weight: 400;
+            font-size: 1.88rem;
+            line-height: 1.88rem;
+            letter-spacing: -0.06rem;
+            color: $blackthree;
+
+            &--black {
+                color: $white;
+            }
+        }
+
+        &__description {
+            margin-top: 1.31rem;
+            font-family: $roboto;
+            font-weight: 400;
+            font-size: 0.88rem;
+            line-height: 1.38rem;
+            text-align: center;
+            color: $blackthree;
+            margin-bottom: 2.4rem;
+            max-width: 27ch;
+
+            &--black {
+                color: $white;
+            }
+        }
+
+        &__content {
+            position: relative;
+            height: 18.75rem;
+            max-height: 18.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0.5rem 1rem rgb(34, 34, 34, .02);
+
+            &--black {
+                box-shadow: none;
+                background-color: $black;
+            }
+        }
+    }
+
+    &__rooms {
+        margin-top: 0.94rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 0.69rem;
+
+        &__title {
+            @include basicTitle;
+            color: $darkgray;
+            text-transform: uppercase;
+        }
+
+        &__caption {
+            margin-top: 1.5rem;
+            @include basicCaption;
+            text-align: center;
+            color: $black;
+        }
+
+        &__name-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__swiper {
+            margin-top: 2.7rem;
+            position: relative;
+            width: 100%;
+        }
+
+        &__swiper-next, &__swiper-prev {
+            position: absolute;
+            z-index: 9;
+            width: 2rem;
+            height: 2rem;
+            background-color: $white;
+            top: 6.63rem;
+
+            transition: background-color 0.6s ease-in-out;
+            @include flex-center;
+
+            &:hover, &:active {
+                background-color: $brown;
+            }
+
+            & img {
+                width: 0.6rem;
+                height: 0.6rem;
+                object-fit: contain;
+            }
+        }
+
+        &__swiper-next {
+            right: 0.94rem;
+        }
+
+        &__swiper-prev {
+            left: 0.94rem;
+        }
+
+        &__container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__perks {
+            position: absolute;
+            z-index: 8;
+            height: 2.5rem;
+            background-color: $white;
+            top: -1.25rem;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 0.5rem 1rem rgb(138, 138, 138, .05);
+
+            display: flex;
+            gap: 1rem;
+
+            & img {
+                height: 1rem;
+                width: 1rem;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            & img {
+                max-height: 15.25rem;
+                width: 100%;
+            }
+        }
+
+        &__information-holder {
+            position: relative;
+        }
+
+        &__information {
+            position: relative;
+            left: 0; right: 0;
+            margin: 0 auto;
+            top: -1.25rem;
+            width: 89.5%;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            padding: 1.19rem 1.5rem;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        &__room-name {
+            font-family: $oldtt;
+            font-weight: 400;
+            font-size: 1.75rem;
+            line-height: 2.25rem;
+            letter-spacing: -0.07rem;
+            color: $black;
+
+            & a {
+                text-decoration: none;
+                color: $black;
+            }
+        }
+
+        &__room-desc {
+            font-family: $roboto;
+            font-weight: 400;
+            font-size: 0.88rem;
+            line-height: 1.50rem;
+            text-align: center;
+        }
+
+        &__room-price {
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 2.69rem;
+            color: $brown;
+
+            & span {
+                font-size: 0.81rem;
+                line-height: 2.69rem;
+            }
+        }
+    }
+
+    &__video {
+        background-color: $black;
+        padding: 0 1.25rem;
+        color: $white;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+
+        &__title {
+            @include basicTitle;
+            color: $brown;
+        }
+
+        &__caption {
+            margin-top: 2rem;
+            @include basicCaption;
+        }
+
+        &__description {
+            margin-top: 1rem;
+            font-weight: 400;
+            font-size: 0.88rem;
+            line-height: 1.5rem;
+            color: $graytwo;
+        }
+
+        &__content {
+            margin-top: 2rem;
+            max-width: calc(100% - 2.5rem);
+            height: 16.88rem;
+        }
+
+        &__button {
+            margin-top: 2.25rem;
+            width: 64.5%;
+        }
+    }
+
+    &__menu-big {
+        display: none;
+    }
+
+    &__menu {
+        margin-top: 3.75rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        position: relative;
+        padding-top: 7.19rem;
+
+        &__image {
+            position: absolute;
+            top: 0;
+            right: -1.59rem;
+
+            & img {
+                width: 7.16rem;
+                height: 7.16rem;
+            }
+        }
+
+        &__title {
+            @include basicTitle;
+            color: darkgray;
+        }
+
+        &__caption {
+            margin-top: 1.5rem;
+            @include basicCaption;
+            color: $black;
+        }
+
+        &__swiper {
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__picture {
+            & img {
+                height: 7.5rem;
+                width: 7.5rem;
+                max-height: 7.5rem;
+                max-width: 7.5rem;
+            }
+        }
+
+        &__information {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__menu-title {
+            margin-top: 0.38rem;
+            font-family: $oldtt;
+            font-weight: 400;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            letter-spacing: 0.04rem;
+        }
+
+        &__menu-description {
+            margin-top: 0.75rem;
+            font-family: $roboto;
+            font-size: 0.88rem;
+            line-height: 1.5rem;
+            font-weight: 400;
+
+        }
+
+        &__navigation {
+            margin-top: 0.88rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        &__left, &__right {
+            @include flex-center;
+            width: 2.25rem;
+            height: 2.25rem;
+            background-color: $graythree;
+
+            & img {
+                width: 0.77rem;
+                height: 0.77rem;
+            }
+
+            transition: background-color 0.6s ease-in-out;
+
+            &:hover, &:active {
+                background-color: $brown;
+            }
+        }
+
+        &__item {
+            display: flex;
+            gap: 1.88rem;
+            color: $black;
+            height: 7.5rem;
+            transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
+
+            /* &:hover {
+                background-color: $black;
+                color: $white;
+            } */
+        }
+    }
+
+    &__images {
+        @include flex-center;
+        margin-top: 3.75rem;
+
+        &__swiper {
+            width: 90%;
+            height: auto;
+            min-height: calc(20.94rem + 1.5rem + 0.44rem);
+        }
+
+        &__container {
+            height: 20.94rem;
+
+            & img {
+                height: 20.94rem;
+                width: 20.94rem;
+            }
+        }
+
+        &__pagination {
+            position: relative;
+            margin-top: 1.5rem;
+            z-index: 10;
+            height: 0.44rem;
+            width: 100%;
+            display: flex;
+            gap: 0.44rem;
+            justify-content: center;
+        }
+
+        &__bullet {
+            background-color: #EDEDED;
+            width: 0.44rem;
+            height: 0.44rem;
+            border-radius: 3rem;
+            transition: background-color 0.6s ease-in-out;
+            pointer-events: all !important;
+
+            &--active {
+                background-color: $brown;
+            }
+        }
+    }
+
+    &__stats {
+        margin-top: 3.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3.75rem;
+        align-items: center;
+        padding: 3rem 0;
+        background-color: $black;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__image {
+            & img {
+                width: 5rem;
+                height: 5rem;
+            }
+        }
+
+        &__title {
+            margin-top: 1rem;
+            color: $white;
+            font-family: $roboto;
+            font-size: 3.7rem;
+            font-weight: 700;
+            line-height: 4.12rem;
+
+            & span {
+                font-size: 1rem;
+                line-height: 1.36rem;
+            }
+        }
+
+        &__description {
+            color: $darkgray;
+            font-family: $roboto;
+            font-weight: 709;
+            font-size: 1;
+            line-height: 1.36rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__button-holder {
+            display: flex;
+            flex-direction: row;
+            gap: 1.875rem;
+
+            & button {
+                max-width: 13.5rem;
+            }
+        }
+
+        &__calendar {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            padding: 2.313rem 10%;
+
+            &__form {
+                max-width: 20.625rem;
+            }
+
+            &__form-container {
+                width: 70%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.875rem;
+            }
+
+            &__button {
+                width: 30%;
+                display: flex;
+                justify-content: flex-start;
+
+                & button {
+                    max-width: 15.625rem;
+                }
+            }
+        }
+
+        &__discover-wrapper {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 4.759rem;
+        }
+
+        &__about {
+            width: 100vw;
+            position: relative;
+            max-width: 30.563rem;
+            background-color: white;
+            z-index: 1;
+
+            & > * {
+                position: relative;
+                z-index: 5;
+            }
+
+            &__caption {
+                font-size: 5rem;
+                line-height: 5.625rem;
+            }
+
+            &__description {
+                font-size: 0.875rem;
+                line-height: 1.5rem;
+                max-width: 28.563rem;
+            }
+
+            &__button {
+                max-width: 13.5rem;
+            }
+
+            &__tile {
+                display: block;
+                position: absolute;
+                width: 500%;
+                height: 85%;
+                top: 6.25rem;
+                left: -11.572rem;
+                background-color: $lightgray;
+            }
+        }
+
+        &__image-cards {
+            display: flex;
+            flex-direction: row;
+            gap: 1.875rem;
+
+            position: static;
+            margin-bottom: 7.5rem;
+            z-index: 5;
+
+            &__card {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 1.875rem;
+                max-height: 100rem;
+            }
+
+            &__content {
+                padding: 0 2.188rem;
+                max-height: 35rem;
+                height: fit-content;
+            }
+
+            &__description {
+                margin-bottom: 2.188rem;
+            }
+
+            &__card-reverse {
+                display: flex;
+                flex-direction: column;
+                gap: 1.875rem;
+                margin-top: 1.875rem;
+            }
+        }
+
+        &__rooms {
+            margin-top: 7.375rem;
+
+            &__container {
+                width: 100%;
+
+
+            }
+
+            &__image {
+            
+                & img {
+                    max-height: 31.25rem;
+                    width: 100%;
+                    aspect-ratio: 1 / 0.65;
+                }
+            }
+
+            &__information {
+                top: -2.31rem;
+                flex-direction: row;
+                width: 90%;
+            }
+
+            &__name-box {
+                justify-content: flex-start;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            &__room-name, &__room-desc {
+                text-align: left;
+                max-width: 50ch;
+            }
+
+            &__room-price {
+                padding-left: 0.36rem;
+            }
+
+            &__perks, &__information {
+                display: none;
+            }
+
+            &__swiper-next, &__swiper-prev {
+                width: 5rem;
+                height: 5rem;
+                top: 30%;
+    
+                & img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+    
+            &__swiper-next {
+                right: 18%;
+            }
+    
+            &__swiper-prev {
+                left: 18%;
+            }
+        }
+
+        &__video {
+            display: flex;
+            background-color: #AD9D82;
+            padding: 0;
+            width: 100%;
+
+            &__container {
+                background-color: $black;
+                padding: 0 14%;
+                color: $white;
+                padding-top: 8.135rem;
+                padding-bottom: 7rem;
+                min-height: 34.75rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                flex: 1 0 70%;
+                position: relative;
+            }
+
+            &__caption {
+                font-size: 5rem;
+                line-height: 5.313rem;
+                max-width: 15ch;
+            }
+
+            &__description {
+                font-size: 0.875rem;
+                line-height: 1.5rem;
+                max-width: calc(20% + 42ch);
+            }
+
+            &__button {
+                max-width: 13.5rem;
+            }
+
+            &__empty {
+                width: 30%;
+            }
+
+            &__content {
+                position: absolute;
+                /* 16:9 */
+                height: 100%;
+                width: 60%;
+                max-width: 35.625rem;
+                right: min(calc(-18rem), -11%);
+                top: -6%;
+                bottom: 0;
+
+                & iframe {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto 0;
+                    width: 100%;
+                    height: 100%;
+                    max-height: 28.75rem;
+                    z-index: 3;
+                }
+            }
+        }
+
+        &__images {
+            @include flex-center;
+            margin-top: 3.75rem;
+    
+            &__swiper {
+                margin-bottom: 3.5rem;
+                margin-top: 3.75rem;
+                width: 100%;
+                height: 23.125rem;
+                max-height: 23.125rem;
+                padding: 0 1.25rem;
+                min-height: calc(20.94rem + 1.5rem + 0.44rem);
+
+                & .swiper-wrapper {
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+            }
+
+            &__container {
+                width: 33%;
+                height: 100%;
+                aspect-ratio: 0.85 / 1;
+                max-height: 23.125rem;
+                padding: 0;
+                margin: 0;
+
+                & img {
+                    height: 100%;
+                    width: 95%;
+                }
+            }
+        }
+
+        &__menu {
+            display: none;
+
+            &__item {
+                width: 100%;
+                max-width: 100%;
+
+                &:hover {
+                    background-color: $black;
+                    color: white;
+                }
+            }
+
+            &__caption {
+                font-size: 5rem;
+                line-height: 6.18rem;
+            }
+
+            &__swiper-big {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 2.678rem;
+            
+                .swiper-slide {
+                    width: 100% !important;
+                    display: flex;
+                    gap: 2rem;
+                    min-width: 30.625rem;
+                    visibility: hidden;
+                }
+
+                .swiper-slide-active {
+                    visibility: visible;
+                }
+            }
+
+            &__left, &__right {
+                width: 4.375rem;
+                height: 4.375rem;
+                position: absolute;
+                top: 9.79rem;
+                right: 2.25rem;
+    
+                & img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+
+            &__left {
+                right: 8.75rem;
+            }
+
+            &__menu-description {
+                max-width: 50ch; 
+                min-width: 13rem;   
+            }
+
+            &__continue {
+                @include flex-center;
+            }
+
+            &__image {
+                left: -16.313rem;
+                top: -4rem;
+                right: none;
+                width: 14.313rem;
+                height: 14.313rem;
+
+                & img {
+                    width: 14.313rem;
+                    height: 14.313rem;
+                }
+            }
+        }
+
+        &__menu-big {
+            display: flex;
+            flex-direction: column;
+
+            margin: 0 8%;
+            width: 84%;
+            margin-top: 12.75rem;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            position: relative;
+            padding-top: 7.19rem;
+
+            position: relative;
+        }
+
+        &__stats {
+            flex-direction: row;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 5rem 5rem;
+            align-items: center;
+            justify-content: center;
+            gap: 4.45rem;
+            text-align: left;
+
+            &__item {
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            &__title, &__description {
+                text-align: left;
+            }
+        }
+    }
+
+    .swiper-slide-active {
+        & .index__rooms {
+            &__perks, &__information {
+                display: flex;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1500px) {
+
+    .index {
+        &__menu {
+            &__continue {
+                margin: 0 10%;
+            }
+        }
+
+        &__menu-big {
+            margin: 0 16%;
+            width: 68%;
+        }
+    }
+}

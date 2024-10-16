@@ -1,0 +1,530 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3.75rem;
+  background-color: #BEAD8E;
+  border: 0.06rem solid #BEAD8E;
+  padding: 1.44rem 0;
+  width: 100%;
+  font-family: "Archivo", "archivo-offline", "Roboto", sans-serif, arial;
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 0.95rem;
+  letter-spacing: 0.17rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+.button--alternative {
+  background-color: #333333;
+  border: 2px solid rgba(255, 255, 255, 0.33);
+}
+
+.room {
+  position: relative;
+}
+.room__image {
+  min-height: 13.63rem;
+}
+.room__image img {
+  width: 100%;
+  height: 16.63rem;
+}
+.room__content {
+  position: relative;
+  padding: 3.06rem 1.44rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+.room__title {
+  font-family: "Old Standard TT", "offline-old_standard_ttregular", "Roboto", sans-serif, arial;
+  color: #222222;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.04rem;
+}
+.room__title a {
+  text-decoration: none;
+  color: #222222;
+}
+.room__description {
+  margin-top: 2.07rem;
+  font-family: "Roboto", "offline-roboto", "Archivo", sans-serif, arial;
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 1.5rem;
+  color: #777777;
+  text-align: center;
+  min-height: 3.57rem;
+}
+.room__details {
+  display: flex;
+  gap: 1.19rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.09rem;
+  margin-top: 0.25rem;
+  color: #BDBDBD;
+}
+.room__details span {
+  color: #BEAD8E;
+}
+.room__perks {
+  position: absolute;
+  z-index: 8;
+  height: 2.5rem;
+  background-color: #fff;
+  top: -1.25rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(138, 138, 138, 0.05);
+  display: flex;
+  gap: 1rem;
+}
+.room__perks img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.room-detail {
+  overflow: hidden;
+  padding: 0 1.25rem;
+}
+.room-detail__title {
+  margin-top: 3rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 0.95rem;
+  letter-spacing: 0.17rem;
+  text-transform: uppercase;
+  color: #777777;
+}
+.room-detail__caption {
+  margin-top: 0.75rem;
+  font-weight: 400;
+  font-family: "Old Standard TT", "offline-old_standard_ttregular", "Roboto", sans-serif, arial;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  letter-spacing: -0.09rem;
+  color: #222222;
+}
+.room-detail__price {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #BEAD8E;
+  line-height: 2.69rem;
+}
+.room-detail__price span {
+  font-size: 0.81rem;
+}
+.room-detail__image {
+  margin-top: 1rem;
+  width: 100%;
+}
+.room-detail__image img {
+  width: 100%;
+  height: 13.38rem;
+}
+.room-detail__calendar {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.57rem 1.25rem;
+}
+.room-detail__calendar__title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.13rem;
+  line-height: 1.22rem;
+  letter-spacing: -0.03rem;
+  color: #222222;
+  margin-bottom: 2.24rem;
+}
+.room-detail__calendar__date {
+  display: inline-block;
+  position: absolute;
+  z-index: 8;
+  width: 1rem;
+  height: 1rem;
+  right: 1.81rem;
+  top: 1.38rem;
+}
+.room-detail__calendar__datepicker {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/calendar_secondary.png");
+}
+.room-detail__calendar__label {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #222222;
+  line-height: 0.95rem;
+}
+.room-detail__calendar__dateinput {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.room-detail__calendar__dateinput::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.room-detail__calendar__construct {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.room-detail__calendar__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.81rem;
+  width: 100%;
+  margin-bottom: 1.19rem;
+}
+.room-detail__calendar__input {
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 0.95rem;
+  color: #777777;
+  border: 0;
+  background-color: #F8F8F8;
+  width: 100%;
+  height: 3.75rem;
+  padding: 1.5rem 1.88rem;
+  padding-right: 3.76rem;
+}
+.room-detail__calendar__input:focus {
+  outline: none;
+}
+.room-detail__calendar__button {
+  margin-top: 0.06rem;
+  width: 100%;
+}
+.room-detail__calendar__button-style {
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 0.95rem;
+  letter-spacing: 0.17rem;
+}
+.room-detail__description {
+  margin-top: 1.5rem;
+  font-family: "Roboto", "offline-roboto", "Archivo", sans-serif, arial;
+  font-size: 0.88rem;
+  line-height: 1.5rem;
+  color: #777777;
+}
+.room-detail__amenities {
+  margin-top: 3.75rem;
+  min-height: 20.94rem;
+}
+.room-detail__amenities__title {
+  font-family: "Old Standard TT", "offline-old_standard_ttregular", "Roboto", sans-serif, arial;
+  font-weight: 400;
+  font-size: 1.88rem;
+  line-height: 1.88rem;
+  color: #222222;
+}
+.room-detail__amenities__hr {
+  background-color: #f1f1f1;
+  height: 0.06rem;
+  width: 100%;
+  margin-top: 0.84rem;
+}
+.room-detail__amenities__ul {
+  margin-top: 2.72rem;
+  columns: 2;
+  list-style: none;
+  font-family: "Roboto", "offline-roboto", "Archivo", sans-serif, arial;
+  font-weight: 500;
+  font-size: 0.94rem;
+  line-height: 1.1rem;
+  color: #777777;
+}
+.room-detail__amenities__ul li {
+  margin-bottom: 1rem;
+}
+.room-detail__amenities__ul li img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+.room-detail__founder {
+  margin-top: 1.06rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.75rem 1.25rem;
+}
+.room-detail__founder__image {
+  width: 9.38rem;
+  height: 9.38rem;
+  position: relative;
+}
+.room-detail__founder__image img {
+  width: 9.38rem;
+  height: 9.38rem;
+  border-radius: 5rem;
+}
+.room-detail__founder__validated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #BEAD8E;
+  width: 2.88rem;
+  height: 2.88rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0.25rem solid #fff;
+  border-radius: 3rem;
+}
+.room-detail__founder__validated img {
+  border-radius: 0;
+  width: 1rem;
+  height: 1rem;
+}
+.room-detail__founder__name {
+  margin-top: 2.38rem;
+  font-family: "Old Standard TT", "offline-old_standard_ttregular", "Roboto", sans-serif, arial;
+  font-weight: 400;
+  font-size: 1.88rem;
+  line-height: 1.88rem;
+  letter-spacing: -0.06rem;
+  color: #222222;
+}
+.room-detail__founder__rank {
+  margin-top: 0.94rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  line-height: 0.95rem;
+  letter-spacing: 0.17rem;
+  color: #BEAD8E;
+}
+.room-detail__founder__description {
+  margin-top: 1.57rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #777777;
+  text-align: center;
+}
+.room-detail__cancellation {
+  margin-top: 3.75rem;
+}
+.room-detail__cancellation__title {
+  font-family: "Old Standard TT", "offline-old_standard_ttregular", "Roboto", sans-serif, arial;
+  font-weight: 400;
+  font-size: 1.88rem;
+  line-height: 1.88rem;
+  color: #222222;
+}
+.room-detail__cancellation__hr {
+  background-color: #f1f1f1;
+  height: 0.06rem;
+  width: 100%;
+  margin-top: 0.84rem;
+}
+.room-detail__cancellation__description {
+  margin-top: 2.03rem;
+  font-family: "Roboto", "offline-roboto", "Archivo", sans-serif, arial;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #777777;
+}
+.room-detail__related {
+  margin-top: 8.19rem;
+}
+.room-detail__related__title {
+  font-family: "Old Standard TT", "offline-old_standard_ttregular", "Roboto", sans-serif, arial;
+  font-weight: 400;
+  font-size: 1.88rem;
+  line-height: 1.88rem;
+  color: #222222;
+}
+.room-detail__related__hr {
+  background-color: #f1f1f1;
+  height: 0.06rem;
+  width: 100%;
+  margin-top: 0.84rem;
+}
+.room-detail__related__swiper {
+  margin-top: 2.1rem;
+  position: relative;
+}
+.room-detail__related__swiper-next, .room-detail__related__swiper-prev {
+  position: absolute;
+  z-index: 9;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  top: 5.81rem;
+  transition: background-color 0.6s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.room-detail__related__swiper-next:hover, .room-detail__related__swiper-next:active, .room-detail__related__swiper-prev:hover, .room-detail__related__swiper-prev:active {
+  background-color: #BEAD8E;
+}
+.room-detail__related__swiper-next img, .room-detail__related__swiper-prev img {
+  width: 0.6rem;
+  height: 0.6rem;
+  object-fit: contain;
+}
+.room-detail__related__swiper-next {
+  right: -0.25rem;
+}
+.room-detail__related__swiper-prev {
+  left: -0.25rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .room-detail {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 3rem;
+    padding: 0 10%;
+  }
+  .room-detail__title {
+    margin-top: 0;
+  }
+  .room-detail__caption {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .room-detail__price {
+    font-size: 2.5rem;
+    line-height: 2.72rem;
+  }
+  .room-detail__information {
+    position: absolute;
+    z-index: 2;
+    top: -4.313rem;
+    width: 94.8%;
+    padding: 2.385rem 3.072rem;
+    background: white;
+    border: 0rem solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .room-detail__information--title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .room-detail__header {
+    display: flex;
+    flex: 1 0 auto;
+    width: 100%;
+    justify-content: center;
+    gap: 1.875rem;
+  }
+  .room-detail__header-left {
+    position: relative;
+    max-width: 48.125rem;
+    width: calc(99% - 22.125rem);
+    flex: 1 0 auto;
+    margin-top: 4.313rem;
+  }
+  .room-detail__header-left img {
+    min-height: 30.625rem;
+  }
+  .room-detail__calendar {
+    flex: 0 0 23.125rem;
+    width: 23.125rem;
+    max-width: 23.125rem;
+  }
+  .room-detail__body {
+    width: 100%;
+    display: flex;
+    gap: 1.875rem;
+    justify-content: center;
+  }
+  .room-detail__left-body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 3rem;
+    align-items: start;
+    width: calc(99% - 22.125rem);
+    max-width: 48.125rem;
+  }
+  .room-detail__right-body {
+    flex: 0 0 23.125rem;
+    width: 23.125rem;
+    max-width: 23.125rem;
+  }
+  .room-detail__description {
+    margin-top: 3.478rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .room-detail__amenities {
+    margin-top: 2.603rem;
+    width: 100%;
+    padding: 2.972rem 3.063rem;
+  }
+  .room-detail__amenities__hr {
+    width: 100%;
+    font-size: 1.875rem;
+    line-height: 1.875rem;
+  }
+  .room-detail__amenities__ul {
+    columns: 3;
+    font-size: 1rem;
+    line-height: 1.172rem;
+  }
+  .room-detail__founder {
+    margin-top: 2.438rem;
+    width: 23.125rem;
+    box-shadow: 0 0.874rem 1.5rem rgba(190, 173, 142, 0.27);
+  }
+  .room-detail__cancellation {
+    margin-top: 5.375rem;
+    width: 100%;
+    padding: 2.972rem 3.063rem;
+  }
+  .room-detail__related__swiper {
+    margin: 0;
+    margin-top: 2.5rem;
+    position: relative;
+    width: 100%;
+  }
+  .room-detail__related__swiper .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(23.125rem, 23.125rem));
+    width: 100%;
+    justify-content: start;
+    gap: 1.875rem;
+  }
+  .room-detail__related__swiper-next, .room-detail__related__swiper-prev {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=room_details.css.map */

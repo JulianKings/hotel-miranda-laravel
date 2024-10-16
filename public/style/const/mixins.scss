@@ -1,0 +1,23 @@
+@use 'variables.scss' as *;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+@mixin basicTitle {
+    font-weight: 700;
+    font-size: 0.88rem;
+    line-height: 0.95rem;
+    letter-spacing: 0.17rem;
+    text-transform: uppercase;
+}
+
+@mixin basicCaption {
+    font-family: $oldtt;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 3.75rem;
+    letter-spacing: -0.07rem;
+}

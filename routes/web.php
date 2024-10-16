@@ -5,7 +5,23 @@ use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/about', function () {
+    return view('hotel.about-page');
+});
+
+Route::get('/offers', function () {
+    return view('hotel.offers-page');
+});
+
+Route::get('/rooms', function () {
+    return view('hotel.rooms-page');
+});
+
+Route::get('/contact', function () {
+    return view('hotel.contact-page');
 });
 
 Route::get('/dashboard', function () {

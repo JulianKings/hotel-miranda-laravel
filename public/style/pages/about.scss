@@ -1,0 +1,400 @@
+@use '../components/button.scss';
+@use '../components/facilities.scss';
+@use '../const/variables.scss' as *;
+@use '../const/mixins.scss' as *;
+
+.about {
+    overflow: hidden;
+
+    &__video {
+        margin-top: 3.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__description {
+            max-width: 88%;
+            margin-top: 2.25rem;
+            font-family: $oldtt;
+            font-weight: 400;
+            font-size: 2rem;
+            line-height: 2.47rem;
+            letter-spacing: -0.07rem;
+            text-align: center;
+        }
+    }
+
+    &__options {
+        margin-top: 3.19rem;
+        width: 100%;
+        padding: 0 1.25rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1.25rem;
+
+        &__extra {
+            display: none;
+        }
+
+        &__item {
+            min-height: 9.88rem;
+            transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
+            color: $black;
+
+            &:hover {
+                background-color: $brown;
+                color: $white;
+            }
+        }
+
+        &__image {
+            margin-top: 2.72rem;
+            display: flex;
+            justify-content: center;
+
+            & img {
+                width: 3.5rem;
+                height: 3.5rem;
+                object-fit: contain;
+            }
+        }
+
+        &__title {
+            margin-top: 0.76rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            line-height: 0.88rem;
+            text-align: center;
+            letter-spacing: 0.15rem;
+            text-transform: uppercase;
+        }
+    }
+
+    &__restaurant {
+        margin: 0 1.25rem;
+        margin-top: 3.19rem;
+        box-shadow: 0 0.88rem 1.5rem rgb(184, 184, 184, .1);
+        padding: 1.25rem 1.25rem;
+
+        &__image {
+            width: 100%;
+
+            & img {
+                width: 100%;
+                height: 14.5rem;
+                max-height: 14.5rem;
+            }
+        }
+
+        &__title {
+            margin-top: 2rem;
+            @include basicTitle;
+            color: $darkgray;
+        }
+
+        &__caption {
+            margin-top: 1.63rem;
+            font-family: $oldtt;
+            font-weight: 400;
+            font-size: 2.5rem;
+            line-height: 3.09rem;
+            letter-spacing: -0.07rem;
+        }
+
+        &__description {
+            margin-top: 1.63rem;
+            font-weight: 400;
+            font-size: 0.88rem;
+            line-height: 1.5rem;
+        }
+        
+        &__button {
+            margin-top: 1rem;
+            width: 73.6%;
+            box-shadow: 0 0.88rem 1.5rem rgb(190, 173, 142, .36);
+        }
+    }
+
+    &__counter {
+        margin-top: 3.75rem;
+        margin-bottom: 1rem;
+        padding: 0 1.25rem;
+
+        &__title {
+            @include basicTitle;
+            color: $darkgray;
+        }
+
+        &__caption {
+            margin-top: 1.5rem;
+            @include basicCaption;
+            color: $black;
+        }
+
+        &__facts {
+            margin-top: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__item {
+            display: flex;
+            width: 100%;
+            margin: 1rem;
+            align-items: center;
+            min-height: 8.38rem;
+        }
+
+        &__image {
+            & img {
+                width: 4.06rem;
+                height: 4.06rem;
+            }
+        }
+
+        &__text {
+            font-family: $roboto;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1rem;
+            margin-left: 0.88rem;
+        }
+
+        &__number {
+            font-family: $oldtt;
+            font-weight: 400;
+            font-size: 3.75rem;
+            line-height: 3.75rem;
+            letter-spacing: -0.11rem;
+        }
+
+        &__arrow {
+            flex: 1 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 2rem;
+
+            & img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+
+    &__images {
+        @include flex-center;
+
+        &__swiper {
+            width: 100%;
+            height: auto;
+            padding: 0 1.25rem;
+            min-height: calc(20.94rem + 1.5rem + 0.44rem);
+        }
+
+        &__container {
+            height: 20.94rem;
+
+            & img {
+                height: 20.94rem;
+                width: 20.94rem;
+            }
+        }
+
+        &__pagination {
+            position: relative;
+            margin-top: 1.5rem;
+            z-index: 10;
+            height: 0.44rem;
+            width: 100%;
+            display: flex;
+            gap: 0.44rem;
+            justify-content: center;
+        }
+
+        &__bullet {
+            background-color: #EDEDED;
+            width: 0.44rem;
+            height: 0.44rem;
+            border-radius: 3rem;
+            transition: background-color 0.6s ease-in-out;
+            pointer-events: all !important;
+
+            &--active {
+                background-color: $brown;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .about {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        margin-top: 3rem;
+        align-items: center;
+
+        &__video {
+            margin: 0 10%;
+            margin-top: 7.5rem;
+
+            &__content {
+                position: relative;
+                padding-bottom: 56.25%;
+                /* 16:9 */
+                height: 0;
+                width: 100%;
+                max-width: 73.125rem;
+
+                & iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 3;
+                }
+            }
+
+            &__description {
+                margin-top: 4.241rem;
+                font-size: 4.5rem;
+                line-height: 5.562rem;
+                letter-spacing: -0.135rem;
+                max-width: 66.5rem;
+            }
+        }
+
+        &__options {
+            margin: 0 10%;
+            margin-top: 4.572rem;
+            max-width: 73.125rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            &__extra {
+                display: block;
+            }
+
+            &__item {
+                flex: 1 0 12.5rem;
+                min-height: 12.5rem;
+            }
+        }
+
+        &__restaurant {
+            margin: 0 10%;
+            margin-top: 2.5rem;
+            max-width: 73.125rem;
+            box-shadow: 0 0.875rem 1.5rem rgba(184, 184, 184, 0.102);
+            padding: 2.5rem 2.625rem;
+
+            display: flex;
+            align-items: center;
+
+            &__image {
+                min-height: 26.25rem;
+                height: 100%;
+                flex: 1 0 45%;
+                max-width: 33.125rem;
+                margin-right: 3.572rem;
+
+                display: flex;
+                align-items: center;
+
+                & img {
+                    height: 100%;
+                    max-height: 100%;
+                }
+            }
+
+            &__title {
+                margin-top: 0;
+            }
+
+            &__caption {
+                font-size: 3rem;
+                line-height: 3.708rem;
+            }
+
+            &__description {
+                font-size: 0.874rem;
+                line-height: 1.5rem;
+            }
+
+            &__button {
+                max-width: 13.5rem;
+            }
+        }
+
+        &__counter {
+            padding: 0 10%;
+            margin-top: 7.428rem;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: flex-start;
+
+            &__caption {
+                font-size: 5rem;
+                line-height: 6.18rem;
+            }
+
+            &__facts {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 1.875rem;
+            }
+
+            &__item {
+                max-width: 23.125rem;
+            }
+        }
+
+        &__images {
+            @include flex-center;
+            margin-top: 3.75rem;
+    
+            &__swiper {
+                margin-bottom: 3.5rem;
+                margin-top: 3.75rem;
+                width: 100%;
+                height: 25rem;
+                max-height: 25rem;
+                padding: 0 1.25rem;
+                min-height: calc(20.94rem + 1.5rem + 0.44rem);
+
+                & .swiper-wrapper {
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+            }
+
+            &__container {
+                width: 50%;
+                height: 25rem;
+                height: 100%;
+                max-height: 25rem;
+                padding: 0;
+                margin: 0;
+
+                & img {
+                    height: 100%;
+                    width: 95%;
+                }
+            }
+
+            &__pagination {
+                display: none;
+            }
+        }
+    }
+}

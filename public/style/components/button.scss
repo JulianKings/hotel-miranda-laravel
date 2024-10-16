@@ -1,0 +1,24 @@
+@use '../const/mixins.scss' as *;
+@use '../const/variables.scss' as *;
+
+.button {
+    @include flex-center;
+    min-height: 3.75rem;
+    background-color: $brown;
+    border: 0.06rem solid $brown;
+    padding: 1.44rem 0;
+    width: 100%;
+
+    font-family: $archivo;
+    font-weight: 700;
+    font-size: 0.88rem;
+    line-height: 0.95rem;
+    letter-spacing: 0.17rem;
+    color: $white;
+    text-transform: uppercase;
+
+    &--alternative {
+        background-color: $blacktwo;
+        border: 2px solid rgb(255, 255, 255, .33);
+    }
+}
