@@ -65,7 +65,7 @@
                         <input type="text" id="arrival-date-text" class="index__calendar__input" />
                     </div>
                 </div>
-    
+
                 <div class="index__calendar__form">
                     <label for="departure-date" class="index__calendar__label">Departure Date</label>
                     <div class="index__calendar__construct">
@@ -144,193 +144,36 @@
 
             <div class="index__rooms__swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide index__rooms__container">
-                        <div class="index__rooms__perks">
-                            <img src="./assets/bed_icon.png" alt="Has a bed" />
-                            <img src="./assets/wifi_icon.png" alt="Has wifi" />
-                            <img src="./assets/automobile_icon.png" alt="Has parking" />
-                            <img src="./assets/snowflake_icon.png" alt="Has air conditioner" />
-                            <img src="./assets/gym_icon.png" alt="Gym included" />
-                            <img src="./assets/no_smoke_icon.png" alt="Smoking forbidden" />
-                            <img src="./assets/holiday_icon.png" alt="Drinks allowed" />
-                        </div>
-                        <div class="index__rooms__image">
-                            <img src="./assets/penthouse1.png" />
-                        </div>
-                        <div class="index__rooms__information-holder">
-                            <div class="index__rooms__information">
-                                <div class="index__rooms__name-box">
-                                    <p class="index__rooms__room-name">
-                                        <a href="room_detail.html">Minimal Duplex Room</a>
-                                    </p>
-                                    <p class="index__rooms__room-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                    @foreach ($rooms as $room)
+                        <div class="swiper-slide index__rooms__container">
+                            @if($room->amenities()->count() > 0)
+                            <div class="index__rooms__perks">
+                                @foreach($room->amenities()->take(6)->get() as $amenity)
+                                    <img src="{{$amenity->image}}" alt="Has {{$amenity->name}}" />
+                                @endforeach
+                            </div>
+                            @endif
+                            <div class="index__rooms__image">
+                                <img src="{{$room->images}}" />
+                            </div>
+                            <div class="index__rooms__information-holder">
+                                <div class="index__rooms__information">
+                                    <div class="index__rooms__name-box">
+                                        <p class="index__rooms__room-name">
+                                            <a href="rooms/{{$room->id}}">{{$room->type}} Room</a>
+                                        </p>
+                                        <p class="index__rooms__room-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                                        </p>
+                                    </div>
+
+                                    <p class="index__rooms__room-price">
+                                        ${{$room->finalPrice()}}<span>/Night</span>
                                     </p>
                                 </div>
-
-                                <p class="index__rooms__room-price">
-                                    $345<span>/Night</span>
-                                </p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="swiper-slide index__rooms__container">
-                        <div class="index__rooms__perks">
-                            <img src="./assets/bed_icon.png" alt="Has a bed" />
-                            <img src="./assets/wifi_icon.png" alt="Has wifi" />
-                            <img src="./assets/automobile_icon.png" alt="Has parking" />
-                            <img src="./assets/snowflake_icon.png" alt="Has air conditioner" />
-                            <img src="./assets/gym_icon.png" alt="Gym included" />
-                            <img src="./assets/no_smoke_icon.png" alt="Smoking forbidden" />
-                            <img src="./assets/holiday_icon.png" alt="Drinks allowed" />
-                        </div>
-                        <div class="index__rooms__image">
-                            <img src="./assets/penthouse2.png" />
-                        </div>
-                        <div class="index__rooms__information-holder">
-                            <div class="index__rooms__information">
-                                <div class="index__rooms__name-box">
-                                    <p class="index__rooms__room-name">
-                                        <a href="room_detail.html">Minimal Duplex Room</a>
-                                    </p>
-                                    <p class="index__rooms__room-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                    </p>
-                                </div>
-                                
-                                <p class="index__rooms__room-price">
-                                    $345<span>/Night</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide index__rooms__container">
-                        <div class="index__rooms__perks">
-                            <img src="./assets/bed_icon.png" alt="Has a bed" />
-                            <img src="./assets/wifi_icon.png" alt="Has wifi" />
-                            <img src="./assets/automobile_icon.png" alt="Has parking" />
-                            <img src="./assets/snowflake_icon.png" alt="Has air conditioner" />
-                            <img src="./assets/gym_icon.png" alt="Gym included" />
-                            <img src="./assets/no_smoke_icon.png" alt="Smoking forbidden" />
-                            <img src="./assets/holiday_icon.png" alt="Drinks allowed" />
-                        </div>
-                        <div class="index__rooms__image">
-                            <img src="./assets/penthouse3.png" />
-                        </div>
-                        <div class="index__rooms__information-holder">
-                            <div class="index__rooms__information">
-                                <div class="index__rooms__name-box">
-                                    <p class="index__rooms__room-name">
-                                        <a href="room_detail.html">Minimal Duplex Room</a>
-                                    </p>
-                                    <p class="index__rooms__room-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                    </p>
-                                </div>
-                                
-                                <p class="index__rooms__room-price">
-                                    $345<span>/Night</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide index__rooms__container">
-                        <div class="index__rooms__perks">
-                            <img src="./assets/bed_icon.png" alt="Has a bed" />
-                            <img src="./assets/wifi_icon.png" alt="Has wifi" />
-                            <img src="./assets/automobile_icon.png" alt="Has parking" />
-                            <img src="./assets/snowflake_icon.png" alt="Has air conditioner" />
-                            <img src="./assets/gym_icon.png" alt="Gym included" />
-                            <img src="./assets/no_smoke_icon.png" alt="Smoking forbidden" />
-                            <img src="./assets/holiday_icon.png" alt="Drinks allowed" />
-                        </div>
-                        <div class="index__rooms__image">
-                            <img src="./assets/penthouse4.png" />
-                        </div>
-                        <div class="index__rooms__information-holder">
-                            <div class="index__rooms__information">
-                                <div class="index__rooms__name-box">
-                                    <p class="index__rooms__room-name">
-                                        <a href="room_detail.html">Minimal Duplex Room</a>
-                                    </p>
-                                    <p class="index__rooms__room-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                    </p>
-                                </div>
-                                
-                                <p class="index__rooms__room-price">
-                                    $345<span>/Night</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide index__rooms__container">
-                        <div class="index__rooms__perks">
-                            <img src="./assets/bed_icon.png" alt="Has a bed" />
-                            <img src="./assets/wifi_icon.png" alt="Has wifi" />
-                            <img src="./assets/automobile_icon.png" alt="Has parking" />
-                            <img src="./assets/snowflake_icon.png" alt="Has air conditioner" />
-                            <img src="./assets/gym_icon.png" alt="Gym included" />
-                            <img src="./assets/no_smoke_icon.png" alt="Smoking forbidden" />
-                            <img src="./assets/holiday_icon.png" alt="Drinks allowed" />
-                        </div>
-                        <div class="index__rooms__image">
-                            <img src="./assets/hotel1.png" />
-                        </div>
-                        <div class="index__rooms__information-holder">
-                            <div class="index__rooms__information">
-                                <div class="index__rooms__name-box">
-                                    <p class="index__rooms__room-name">
-                                        <a href="room_detail.html">Minimal Duplex Room</a>
-                                    </p>
-                                    <p class="index__rooms__room-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                    </p>
-                                </div>
-                                
-                                <p class="index__rooms__room-price">
-                                    $345<span>/Night</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide index__rooms__container">
-                        <div class="index__rooms__perks">
-                            <img src="./assets/bed_icon.png" alt="Has a bed" />
-                            <img src="./assets/wifi_icon.png" alt="Has wifi" />
-                            <img src="./assets/automobile_icon.png" alt="Has parking" />
-                            <img src="./assets/snowflake_icon.png" alt="Has air conditioner" />
-                            <img src="./assets/gym_icon.png" alt="Gym included" />
-                            <img src="./assets/no_smoke_icon.png" alt="Smoking forbidden" />
-                            <img src="./assets/holiday_icon.png" alt="Drinks allowed" />
-                        </div>
-                        <div class="index__rooms__image">
-                            <img src="./assets/hotel2.png" />
-                        </div>
-                        <div class="index__rooms__information-holder">
-                            <div class="index__rooms__information">
-                                <div class="index__rooms__name-box">
-                                    <p class="index__rooms__room-name">
-                                        <a href="room_detail.html">Minimal Duplex Room</a>
-                                    </p>
-                                    <p class="index__rooms__room-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                    </p>
-                                </div>
-                                
-                                <p class="index__rooms__room-price">
-                                    $345<span>/Night</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
+                    @endforeach
                 </div>
 
                 <div class="index__rooms__swiper-prev">
@@ -352,9 +195,9 @@
                 </div>
                 <div class="index__video__button">
                     <button type="button" class="button">Book now</button>
-                </div> 
-            </div>  
-            <div class="index__video__empty"></div>     
+                </div>
+            </div>
+            <div class="index__video__empty"></div>
         </section>
 
         <section class="facilities">
@@ -767,7 +610,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/coffe.jpg" alt="coffee picture" />
@@ -784,7 +627,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
@@ -802,7 +645,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
@@ -820,7 +663,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
@@ -837,7 +680,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/cheese.jpg" alt="Cheese plate" />
@@ -875,7 +718,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/coffe.jpg" alt="coffee picture" />
@@ -892,7 +735,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
@@ -910,7 +753,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
@@ -928,7 +771,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
@@ -945,7 +788,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/cheese.jpg" alt="Cheese plate" />
@@ -983,7 +826,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/coffe.jpg" alt="coffee picture" />
@@ -1000,7 +843,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
@@ -1018,7 +861,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
@@ -1036,7 +879,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
@@ -1053,7 +896,7 @@
                                     <img src="./assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
-    
+
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
                                     <img src="./assets/cheese.jpg" alt="Cheese plate" />
@@ -1091,7 +934,7 @@
                     <div class="swiper-slide index__images__container">
                         <img src="./assets/hotel3.png" alt="hotel image" />
                     </div>
-                    
+
                     <div class="swiper-slide index__images__container">
                         <img src="./assets/hotel4.png" alt="hotel image" />
                     </div>

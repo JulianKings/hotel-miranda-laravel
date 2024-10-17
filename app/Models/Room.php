@@ -11,9 +11,19 @@ class Room extends Model
 {
     use HasFactory;
 
+    public function originalPrice()
+    {
+        return $this->price / 100;
+    }
+
+    public function finalPrice()
+    {
+        return number_format((float)($this->originalPrice() * (1 - $this->offer / 100)), 2, '.', '');
+    }
+
     public function amenities(): BelongsToMany
     {
-        return $this->belongsToMany(Amenity::class, 'id', 'room_id');
+        return $this->belongsToMany(Amenity::class, 'room_amenities', 'room_id');
     }
 
     public function bookings(): HasMany
