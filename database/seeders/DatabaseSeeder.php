@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         foreach ($amenities as $amenity):
             Amenity::factory()->create([
                 'name' => $amenity,
-                'image' => './assets/amenities' . $amenityId++ . '.png'
+                'image' => 'http://localhost/assets/amenities' . $amenityId++ . '.png'
             ]);
         endforeach;
 

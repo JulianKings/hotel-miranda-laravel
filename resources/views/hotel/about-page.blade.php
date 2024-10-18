@@ -16,7 +16,7 @@
         <section class="about__options">
             <div class="about__options__item" id="coffee">
                 <div class="about__options__image">
-                    <img src="./assets/coffee.png" id="coffee-img" alt="Breakfast" />
+                    <img src="{{URL::to('/');}}/assets/coffee.png" id="coffee-img" alt="Breakfast" />
                 </div>
                 <p class="about__options__title" id="coffee-text">
                     Breakfast
@@ -25,7 +25,7 @@
 
             <div class="about__options__item" id="plane">
                 <div class="about__options__image">
-                    <img src="./assets/plane.png" id="plane-img" alt="Travel Plane" />
+                    <img src="{{URL::to('/');}}/assets/plane.png" id="plane-img" alt="Travel Plane" />
                 </div>
                 <p class="about__options__title" id="plane-text">
                     Airport pickup
@@ -34,7 +34,7 @@
 
             <div class="about__options__item" id="location">
                 <div class="about__options__image">
-                    <img src="./assets/location.png" id="location-img" alt="Location" />
+                    <img src="{{URL::to('/');}}/assets/location.png" id="location-img" alt="Location" />
                 </div>
                 <p class="about__options__title"  id="location-text">
                     City Guide
@@ -43,7 +43,7 @@
 
             <div class="about__options__item about__options__extra" id="bbq">
                 <div class="about__options__image">
-                    <img src="./assets/bbq.png" id="bbq-img" alt="BBQ Party" />
+                    <img src="{{URL::to('/');}}/assets/bbq.png" id="bbq-img" alt="BBQ Party" />
                 </div>
                 <p class="about__options__title"  id="bbq-text">
                     Bbq Party
@@ -52,7 +52,7 @@
 
             <div class="about__options__item" id="sofa">
                 <div class="about__options__image">
-                    <img src="./assets/sofa.png" id="sofa-img" alt="Sofa Comfort" />
+                    <img src="{{URL::to('/');}}/assets/sofa.png" id="sofa-img" alt="Sofa Comfort" />
                 </div>
                 <div class="about__options__title" id="sofa-text">
                     Luxury room
@@ -62,7 +62,7 @@
 
         <section class="about__restaurant">
             <div class="about__restaurant__image">
-                <img src="./assets/restaurant.png" alt="Restaurant" />
+                <img src="{{URL::to('/');}}/assets/restaurant.png" alt="Restaurant" />
             </div>
             <div class="about__restaurant__information">
                 <p class="about__restaurant__title">Restaurant</p>
@@ -88,7 +88,7 @@
                             01
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core1.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core1.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text facilities__text--dark">
                             Have High Rating
@@ -103,7 +103,7 @@
                             02
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core2.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core2.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text facilities__text--dark">
                             Quiet Hours
@@ -118,7 +118,7 @@
                             03
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core3.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core3.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text facilities__text--dark">
                             Best Locations
@@ -133,7 +133,7 @@
                             04
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core4.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core4.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text facilities__text--dark">
                             Free Cancellation
@@ -148,7 +148,7 @@
                             05
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core5.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core5.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text facilities__text--dark">
                             Payment Options
@@ -163,7 +163,7 @@
                             06
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core6.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core6.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text facilities__text--dark">
                             Special Offers
@@ -184,40 +184,40 @@
             <div class="about__counter__facts">
                 <div class="about__counter__item">
                     <div class="about__counter__image">
-                        <img src="./assets/person.png" alt="Happy Person" />
+                        <img src="{{URL::to('/');}}/assets/person.png" alt="Happy Person" />
                     </div>
                     <div class="about__counter__text">
                         <p class="about__counter__number">{{$userCount}}</p>
                         <p>Happy Users</p>
                     </div>
                     <div class="about__counter__arrow">
-                        <img src="./assets/arrow.png" alt="Find out more" />
+                        <img src="{{URL::to('/');}}/assets/arrow.png" alt="Find out more" />
                     </div>
                 </div>
 
                 <div class="about__counter__item">
                     <div class="about__counter__image">
-                        <img src="./assets/thumbsup.png" alt="Thumbs up" />
+                        <img src="{{URL::to('/');}}/assets/thumbsup.png" alt="Thumbs up" />
                     </div>
                     <div class="about__counter__text">
                         <p class="about__counter__number">10M</p>
                         <p>Reviews & Appreciate</p>
                     </div>
                     <div class="about__counter__arrow">
-                        <img src="./assets/arrow.png" alt="Find out more" />
+                        <img src="{{URL::to('/');}}/assets/arrow.png" alt="Find out more" />
                     </div>
                 </div>
 
                 <div class="about__counter__item">
                     <div class="about__counter__image">
-                        <img src="./assets/world.png" alt="Huge World" />
+                        <img src="{{URL::to('/');}}/assets/world.png" alt="Huge World" />
                     </div>
                     <div class="about__counter__text">
                         <p class="about__counter__number">100</p>
                         <p>Country Coverage</p>
                     </div>
                     <div class="about__counter__arrow">
-                        <img src="./assets/arrow.png" alt="Find out more" />
+                        <img src="{{URL::to('/');}}/assets/arrow.png" alt="Find out more" />
                     </div>
                 </div>
             </div>
@@ -227,11 +227,11 @@
             <div class="about__images__swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide about__images__container">
-                        <img src="./assets/hotel3.png" alt="hotel image" />
+                        <img src="{{URL::to('/');}}/assets/hotel3.png" alt="hotel image" />
                     </div>
 
                     <div class="swiper-slide about__images__container">
-                        <img src="./assets/hotel4.png" alt="hotel image" />
+                        <img src="{{URL::to('/');}}/assets/hotel4.png" alt="hotel image" />
                     </div>
                 </div>
 

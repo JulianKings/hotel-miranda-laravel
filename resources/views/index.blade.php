@@ -3,16 +3,16 @@
 <body class="content">
     <header class="header">
         <div class="header__content">
-            <img src="./assets/menu.png" class="header__content__menu" tabindex="1" alt="Menu" />
+            <img src="{{URL::to('/');}}/assets/menu.png" class="header__content__menu" tabindex="1" alt="Menu" />
 
             <div class="header__content__logo">
                 <div class="header__logo__icon-box">
-                    <img src="./assets/logo_icon.png" class="header__logo--small" alt="Logo Icon" />
-                    <img src="./assets/big-logo-icon.png" class="header__logo--big" alt="Logo Icon" />
+                    <img src="{{URL::to('/');}}/assets/logo_icon.png" class="header__logo--small" alt="Logo Icon" />
+                    <img src="{{URL::to('/');}}/assets/big-logo-icon.png" class="header__logo--big" alt="Logo Icon" />
                 </div>
                 <div class="header__logo">
-                    <img src="./assets/logo.png" class="header__logo--small" alt="Logo" />
-                    <img src="./assets/big-logo.png" class="header__logo--big" alt="Logo" />
+                    <img src="{{URL::to('/');}}/assets/logo.png" class="header__logo--small" alt="Logo" />
+                    <img src="{{URL::to('/');}}/assets/big-logo.png" class="header__logo--big" alt="Logo" />
                 </div>
             </div>
 
@@ -26,8 +26,8 @@
             </nav>
 
             <div class="header__content__actions">
-                <div class="header__content__actions__item"><a href="login"><img src="./assets/account.png" alt="Account" /></a></div>
-                <div class="header__content__actions__item"><img src="./assets/search.png" alt="Search" /></div>
+                <div class="header__content__actions__item"><a href="login"><img src="{{URL::to('/');}}/assets/account.png" alt="Account" /></a></div>
+                <div class="header__content__actions__item"><img src="{{URL::to('/');}}/assets/search.png" alt="Search" /></div>
             </div>
         </div>
 
@@ -97,15 +97,15 @@
             <section class="index__image-cards">
                 <div class="index__image-cards__card">
                     <div class="index__image-cards__image">
-                        <img src="./assets/working.png" alt="A team of people working" />
+                        <img src="{{URL::to('/');}}/assets/working.png" alt="A team of people working" />
                     </div>
 
                     <div class="index__image-cards__content">
                         <div class="index__image-cards__picture">
-                            <img src="./assets/team.png" alt="Team icon">
+                            <img src="{{URL::to('/');}}/assets/team.png" alt="Team icon">
                         </div>
                         <div class="index__image-cards__translucent">
-                            <img src="./assets/transparent-team.png">
+                            <img src="{{URL::to('/');}}/assets/transparent-team.png">
                         </div>
                         <p class="index__image-cards__title">
                             Strong Team
@@ -118,12 +118,12 @@
 
                 <div class="index__image-cards__card index__image-cards__card index__image-cards__card-reverse">
                     <div class="index__image-cards__image">
-                        <img src="./assets/luxury-room-picture.png" alt="A room full of luxury items" />
+                        <img src="{{URL::to('/');}}/assets/luxury-room-picture.png" alt="A room full of luxury items" />
                     </div>
 
                     <div class="index__image-cards__content index__image-cards__content--black">
                         <div class="index__image-cards__picture">
-                            <img src="./assets/luxury-room.png" alt="Luxury room">
+                            <img src="{{URL::to('/');}}/assets/luxury-room.png" alt="Luxury room">
                         </div>
                         <p class="index__image-cards__title index__image-cards__title--black">
                             Luxury Room
@@ -147,11 +147,11 @@
                     @foreach ($rooms as $room)
                         <div class="swiper-slide index__rooms__container">
                             @if($room->amenities()->count() > 0)
-                            <div class="index__rooms__perks">
-                                @foreach($room->amenities()->take(6)->get() as $amenity)
-                                    <img src="{{$amenity->image}}" alt="Has {{$amenity->name}}" />
-                                @endforeach
-                            </div>
+                                <div class="index__rooms__perks">
+                                    @foreach($room->amenities()->take(6)->get() as $amenity)
+                                        <img src="{{$amenity->image}}" alt="Has {{$amenity->name}}" />
+                                    @endforeach
+                                </div>
                             @endif
                             <div class="index__rooms__image">
                                 <img src="{{$room->images}}" alt='Room Image' />
@@ -177,10 +177,10 @@
                 </div>
 
                 <div class="index__rooms__swiper-prev">
-                    <img src="./assets/left.png" id="rooms-slide-left" alt="slide left" />
+                    <img src="{{URL::to('/');}}/assets/left.png" id="rooms-slide-left" alt="slide left" />
                 </div>
                 <div class="index__rooms__swiper-next">
-                    <img src="./assets/right.png" id="rooms-slide-right" alt="slide right" />
+                    <img src="{{URL::to('/');}}/assets/right.png" id="rooms-slide-right" alt="slide right" />
                 </div>
             </div>
         </section>
@@ -210,7 +210,7 @@
                             01
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core1.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core1.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text">
                             Have High Rating
@@ -225,7 +225,7 @@
                             02
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core2.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core2.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text">
                             Quiet Hours
@@ -240,7 +240,7 @@
                             03
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core3.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core3.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text">
                             Best Locations
@@ -255,7 +255,7 @@
                             04
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core4.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core4.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text">
                             Free Cancellation
@@ -270,7 +270,7 @@
                             05
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core5.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core5.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text">
                             Payment Options
@@ -285,7 +285,7 @@
                             06
                         </p>
                         <div class="facilities__image">
-                            <img src="./assets/core6.png" alt="High Rating" />
+                            <img src="{{URL::to('/');}}/assets/core6.png" alt="High Rating" />
                         </div>
                         <p class="facilities__text">
                             Special Offers
@@ -302,7 +302,7 @@
 
         <section class="index__menu">
             <div class="index__menu__image">
-                <img src="./assets/donut.png" />
+                <img src="{{URL::to('/');}}/assets/donut.png" />
             </div>
             <p class="index__menu__title">Menu</p>
             <p class="index__menu__caption">Our Foods Menu</p>
@@ -311,7 +311,7 @@
                     <div class="swiper-slide index__menu__container">
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/bacon.jpg" alt="Bacon" />
+                                <img src="{{URL::to('/');}}/assets/bacon.jpg" alt="Bacon" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -325,7 +325,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/coffe.jpg" alt="coffee picture" />
+                                <img src="{{URL::to('/');}}/assets/coffe.jpg" alt="coffee picture" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -339,7 +339,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
+                                <img src="{{URL::to('/');}}/assets/chia.jpeg" alt="Chia oatmeal" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -355,7 +355,7 @@
                     <div class="swiper-slide index__menu__container">
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/parfait.jpeg" alt="A bunch of fruits" />
+                                <img src="{{URL::to('/');}}/assets/parfait.jpeg" alt="A bunch of fruits" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -369,7 +369,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
+                                <img src="{{URL::to('/');}}/assets/marmalade.jpeg" alt="Marmalade collection" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -383,7 +383,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/cheese.jpg" alt="Cheese plate" />
+                                <img src="{{URL::to('/');}}/assets/cheese.jpg" alt="Cheese plate" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -399,7 +399,7 @@
                     <div class="swiper-slide index__menu__container">
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/bacon.jpg" alt="Bacon" />
+                                <img src="{{URL::to('/');}}/assets/bacon.jpg" alt="Bacon" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -413,7 +413,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/coffe.jpg" alt="coffee picture" />
+                                <img src="{{URL::to('/');}}/assets/coffe.jpg" alt="coffee picture" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -427,7 +427,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
+                                <img src="{{URL::to('/');}}/assets/chia.jpeg" alt="Chia oatmeal" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -443,7 +443,7 @@
                     <div class="swiper-slide index__menu__container">
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/parfait.jpeg" alt="A bunch of fruits" />
+                                <img src="{{URL::to('/');}}/assets/parfait.jpeg" alt="A bunch of fruits" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -457,7 +457,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
+                                <img src="{{URL::to('/');}}/assets/marmalade.jpeg" alt="Marmalade collection" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -471,7 +471,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/cheese.jpg" alt="Cheese plate" />
+                                <img src="{{URL::to('/');}}/assets/cheese.jpg" alt="Cheese plate" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -487,7 +487,7 @@
                     <div class="swiper-slide index__menu__container">
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/bacon.jpg" alt="Bacon" />
+                                <img src="{{URL::to('/');}}/assets/bacon.jpg" alt="Bacon" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -501,7 +501,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/coffe.jpg" alt="coffee picture" />
+                                <img src="{{URL::to('/');}}/assets/coffe.jpg" alt="coffee picture" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -515,7 +515,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
+                                <img src="{{URL::to('/');}}/assets/chia.jpeg" alt="Chia oatmeal" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -531,7 +531,7 @@
                     <div class="swiper-slide index__menu__container">
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/parfait.jpeg" alt="A bunch of fruits" />
+                                <img src="{{URL::to('/');}}/assets/parfait.jpeg" alt="A bunch of fruits" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -545,7 +545,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
+                                <img src="{{URL::to('/');}}/assets/marmalade.jpeg" alt="Marmalade collection" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -559,7 +559,7 @@
 
                         <div class="index__menu__item" id="menu-item">
                             <div class="index__menu__picture">
-                                <img src="./assets/cheese.jpg" alt="Cheese plate" />
+                                <img src="{{URL::to('/');}}/assets/cheese.jpg" alt="Cheese plate" />
                             </div>
                             <div class="index__menu__information">
                                 <p class="index__menu__menu-title">
@@ -575,10 +575,10 @@
 
                 <div class="index__menu__navigation">
                     <div class="index__menu__left">
-                        <img src="./assets/bigleft.png" id="menu-slide-left" alt="Previous menus" />
+                        <img src="{{URL::to('/');}}/assets/bigleft.png" id="menu-slide-left" alt="Previous menus" />
                     </div>
                     <div class="index__menu__right">
-                        <img src="./assets/bigright.png" id="menu-slide-right"  alt="Next menus" />
+                        <img src="{{URL::to('/');}}/assets/bigright.png" id="menu-slide-right"  alt="Next menus" />
                     </div>
                 </div>
             </div>
@@ -586,7 +586,7 @@
 
         <section class="index__menu-big">
             <div class="index__menu__image">
-                <img src="./assets/donut.png" />
+                <img src="{{URL::to('/');}}/assets/donut.png" />
             </div>
             <p class="index__menu__title">Menu</p>
             <p class="index__menu__caption">Our Foods Menu</p>
@@ -596,7 +596,7 @@
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/bacon.jpg" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/bacon.jpg" alt="Bacon" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -607,13 +607,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/coffe.jpg" alt="coffee picture" />
+                                    <img src="{{URL::to('/');}}/assets/coffe.jpg" alt="coffee picture" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -624,13 +624,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
+                                    <img src="{{URL::to('/');}}/assets/chia.jpeg" alt="Chia oatmeal" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -641,7 +641,7 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
                         </div>
@@ -649,7 +649,7 @@
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/parfait.jpeg" alt="A bunch of fruits" />
+                                    <img src="{{URL::to('/');}}/assets/parfait.jpeg" alt="A bunch of fruits" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -660,13 +660,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
+                                    <img src="{{URL::to('/');}}/assets/marmalade.jpeg" alt="Marmalade collection" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -677,13 +677,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/cheese.jpg" alt="Cheese plate" />
+                                    <img src="{{URL::to('/');}}/assets/cheese.jpg" alt="Cheese plate" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -694,7 +694,7 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
                         </div>
@@ -704,7 +704,7 @@
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/bacon.jpg" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/bacon.jpg" alt="Bacon" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -715,13 +715,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/coffe.jpg" alt="coffee picture" />
+                                    <img src="{{URL::to('/');}}/assets/coffe.jpg" alt="coffee picture" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -732,13 +732,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
+                                    <img src="{{URL::to('/');}}/assets/chia.jpeg" alt="Chia oatmeal" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -749,7 +749,7 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
                         </div>
@@ -757,7 +757,7 @@
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/parfait.jpeg" alt="A bunch of fruits" />
+                                    <img src="{{URL::to('/');}}/assets/parfait.jpeg" alt="A bunch of fruits" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -768,13 +768,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
+                                    <img src="{{URL::to('/');}}/assets/marmalade.jpeg" alt="Marmalade collection" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -785,13 +785,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/cheese.jpg" alt="Cheese plate" />
+                                    <img src="{{URL::to('/');}}/assets/cheese.jpg" alt="Cheese plate" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -802,7 +802,7 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
                         </div>
@@ -812,7 +812,7 @@
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/bacon.jpg" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/bacon.jpg" alt="Bacon" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -823,13 +823,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/coffe.jpg" alt="coffee picture" />
+                                    <img src="{{URL::to('/');}}/assets/coffe.jpg" alt="coffee picture" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -840,13 +840,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/chia.jpeg" alt="Chia oatmeal" />
+                                    <img src="{{URL::to('/');}}/assets/chia.jpeg" alt="Chia oatmeal" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -857,7 +857,7 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
                         </div>
@@ -865,7 +865,7 @@
                         <div class="index__menu__container">
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/parfait.jpeg" alt="A bunch of fruits" />
+                                    <img src="{{URL::to('/');}}/assets/parfait.jpeg" alt="A bunch of fruits" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -876,13 +876,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/marmalade.jpeg" alt="Marmalade collection" />
+                                    <img src="{{URL::to('/');}}/assets/marmalade.jpeg" alt="Marmalade collection" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -893,13 +893,13 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
 
                             <div class="index__menu__item" id="menu-item">
                                 <div class="index__menu__picture">
-                                    <img src="./assets/cheese.jpg" alt="Cheese plate" />
+                                    <img src="{{URL::to('/');}}/assets/cheese.jpg" alt="Cheese plate" />
                                 </div>
                                 <div class="index__menu__information">
                                     <p class="index__menu__menu-title">
@@ -910,7 +910,7 @@
                                     </p>
                                 </div>
                                 <div class="index__menu__continue">
-                                    <img src="./assets/menu-arrow.png" alt="Bacon" />
+                                    <img src="{{URL::to('/');}}/assets/menu-arrow.png" alt="Bacon" />
                                 </div>
                             </div>
                         </div>
@@ -919,10 +919,10 @@
 
                 <div class="index__menu__navigation">
                     <div class="index__menu__left">
-                        <img src="./assets/bigleft.png" id="menu-slide-left" alt="Previous menus" />
+                        <img src="{{URL::to('/');}}/assets/bigleft.png" id="menu-slide-left" alt="Previous menus" />
                     </div>
                     <div class="index__menu__right">
-                        <img src="./assets/bigright.png" id="menu-slide-right"  alt="Next menus" />
+                        <img src="{{URL::to('/');}}/assets/bigright.png" id="menu-slide-right"  alt="Next menus" />
                     </div>
                 </div>
             </div>
@@ -932,15 +932,15 @@
             <div class="index__images__swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide index__images__container">
-                        <img src="./assets/hotel3.png" alt="hotel image" />
+                        <img src="{{URL::to('/');}}/assets/hotel3.png" alt="hotel image" />
                     </div>
 
                     <div class="swiper-slide index__images__container">
-                        <img src="./assets/hotel4.png" alt="hotel image" />
+                        <img src="{{URL::to('/');}}/assets/hotel4.png" alt="hotel image" />
                     </div>
 
                     <div class="swiper-slide index__images__container">
-                        <img src="./assets/hotel5.png" alt="hotel image" />
+                        <img src="{{URL::to('/');}}/assets/hotel5.png" alt="hotel image" />
                     </div>
                 </div>
 
@@ -951,7 +951,7 @@
         <section class="index__stats">
             <div class="index__stats__item">
                 <div class="index__stats__image">
-                    <img src="./assets/stat1.svg" />
+                    <img src="{{URL::to('/');}}/assets/stat1.svg" />
                 </div>
                 <p class="index__stats__title">
                     84k<span>+</span>
@@ -963,7 +963,7 @@
 
             <div class="index__stats__item">
                 <div class="index__stats__image">
-                    <img src="./assets/stat2.png" />
+                    <img src="{{URL::to('/');}}/assets/stat2.png" />
                 </div>
                 <p class="index__stats__title">
                     10M<span>+</span>
@@ -975,7 +975,7 @@
 
             <div class="index__stats__item">
                 <div class="index__stats__image">
-                    <img src="./assets/stat3.png" />
+                    <img src="{{URL::to('/');}}/assets/stat3.png" />
                 </div>
                 <div class="index__stats__title">
                     02k<span>+</span>
@@ -987,7 +987,7 @@
 
             <div class="index__stats__item">
                 <div class="index__stats__image">
-                    <img src="./assets/stat4.png" />
+                    <img src="{{URL::to('/');}}/assets/stat4.png" />
                 </div>
                 <p class="index__stats__title">
                     100M<span>+</span>

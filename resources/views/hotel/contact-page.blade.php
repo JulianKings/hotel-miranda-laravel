@@ -1,13 +1,13 @@
 @include('hotel.layout.head-component', ['styles' => $styles, 'scripts' => $scripts])
 
-<body class="content">    
+<body class="content">
     @include('hotel.layout.header-component', ['title' => $title, 'subtitle' => $subtitle])
 
     <main class="contact">
         <section class="contact__item-container">
             <div class="contact__item">
                 <div class="contact__item__image">
-                    <img src="./assets/mail-us.png" alt="Address">
+                    <img src="{{URL::to('/');}}/assets/mail-us.png" alt="Address">
                 </div>
                 <div class="contact__item__position">01</div>
                 <div class="contact__item__information">
@@ -18,7 +18,7 @@
             </div>
             <div class="contact__item">
                 <div class="contact__item__image">
-                    <img src="./assets/mail-us.png" alt="Address">
+                    <img src="{{URL::to('/');}}/assets/mail-us.png" alt="Address">
                 </div>
                 <div class="contact__item__position">02</div>
                 <div class="contact__item__information">
@@ -31,7 +31,7 @@
             </div>
             <div class="contact__item">
                 <div class="contact__item__image">
-                    <img src="./assets/mail-us.png" alt="Address">
+                    <img src="{{URL::to('/');}}/assets/mail-us.png" alt="Address">
                 </div>
                 <div class="contact__item__position">03</div>
                 <div class="contact__item__information">
@@ -44,7 +44,7 @@
         </section>
 
         <section class="contact__image">
-            <img src="./assets/hotel.png" alt="Hotel Image" />
+            <img src="{{URL::to('/');}}/assets/hotel.png" alt="Hotel Image" />
         </section>
 
         <section class="contact__form">

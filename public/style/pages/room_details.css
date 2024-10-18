@@ -161,7 +161,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/calendar_secondary.png");
+  background-image: url("../.{{URL::to('/');}}/assets/calendar_secondary.png");
 }
 .room-detail__calendar__label {
   font-weight: 700;

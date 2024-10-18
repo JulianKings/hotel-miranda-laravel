@@ -78,10 +78,10 @@
                 </div>
 
                 <div class="offers__popular__swiper-prev">
-                    <img src="./assets/left.png" id="rooms-slide-left" alt="slide left" />
+                    <img src="{{URL::to('/');}}/assets/left.png" id="rooms-slide-left" alt="slide left" />
                 </div>
                 <div class="offers__popular__swiper-next">
-                    <img src="./assets/right.png" id="rooms-slide-right" alt="slide right" />
+                    <img src="{{URL::to('/');}}/assets/right.png" id="rooms-slide-right" alt="slide right" />
                 </div>
             </div>
         </div>

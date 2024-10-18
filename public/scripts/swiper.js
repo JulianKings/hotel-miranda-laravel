@@ -6,43 +6,43 @@ const slideBigRight = document.querySelector('.index__menu__right');
 // small buttons
 slideLeft.addEventListener('mouseover', () => {
     const element = document.querySelector('#rooms-slide-left');
-    element.src = './assets/left_white.png';
+    element.src = '{{URL::to('/');}}/assets/left_white.png';
 });
 
 slideLeft.addEventListener('mouseout', () => {
     const element = document.querySelector('#rooms-slide-left');
-    element.src = './assets/left.png';
+    element.src = '{{URL::to('/');}}/assets/left.png';
 });
 
 slideRight.addEventListener('mouseover', () => {
     const element = document.querySelector('#rooms-slide-right');
-    element.src = './assets/right_white.png';
+    element.src = '{{URL::to('/');}}/assets/right_white.png';
 });
 
 slideRight.addEventListener('mouseout', () => {
     const element = document.querySelector('#rooms-slide-right');
-    element.src = './assets/right.png';
+    element.src = '{{URL::to('/');}}/assets/right.png';
 });
 
 // big buttons
 slideBigLeft.addEventListener('mouseover', () => {
     const element = document.querySelector('#menu-slide-left');
-    element.src = './assets/bigleft_white.png';
+    element.src = '{{URL::to('/');}}/assets/bigleft_white.png';
 });
 
 slideBigLeft.addEventListener('mouseout', () => {
     const element = document.querySelector('#menu-slide-left');
-    element.src = './assets/bigleft.png';
+    element.src = '{{URL::to('/');}}/assets/bigleft.png';
 });
 
 slideBigRight.addEventListener('mouseover', () => {
     const element = document.querySelector('#menu-slide-right');
-    element.src = './assets/bigright_white.png';
+    element.src = '{{URL::to('/');}}/assets/bigright_white.png';
 });
 
 slideBigRight.addEventListener('mouseout', () => {
     const element = document.querySelector('#menu-slide-right');
-    element.src = './assets/bigright.png';
+    element.src = '{{URL::to('/');}}/assets/bigright.png';
 });
 
 const swiper = new Swiper('.index__rooms__swiper', {

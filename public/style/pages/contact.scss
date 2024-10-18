@@ -73,7 +73,7 @@
             height: 12.5rem;
         }
     }
-    
+
     &__form {
         margin: 0 1.25rem;
         margin-top: 3.75rem;
@@ -108,11 +108,11 @@
             & + span::before {
                 position: absolute;
                 z-index: 16;
-                content: url("../../assets/name.png");
+                content: url("../.{{URL::to('/');}}/assets/name.png");
                 width: 1rem;
                 height: 1rem;
                 left: 1.25rem;
-                top: 1.56rem;                
+                top: 1.56rem;
             }
         }
 
@@ -120,11 +120,11 @@
             & + span::before {
                 position: absolute;
                 z-index: 16;
-                content: url("../../assets/cell.png");
+                content: url("../.{{URL::to('/');}}/assets/cell.png");
                 width: 1rem;
                 height: 1rem;
                 left: 1.25rem;
-                top: 1.56rem;                
+                top: 1.56rem;
             }
         }
 
@@ -132,11 +132,11 @@
             & + span::before {
                 position: absolute;
                 z-index: 16;
-                content: url("../../assets/email.png");
+                content: url("../.{{URL::to('/');}}/assets/email.png");
                 width: 1rem;
                 height: 1rem;
                 left: 1.25rem;
-                top: 1.56rem;                
+                top: 1.56rem;
             }
         }
 
@@ -144,11 +144,11 @@
             & + span::before {
                 position: absolute;
                 z-index: 16;
-                content: url("../../assets/subject.png");
+                content: url("../.{{URL::to('/');}}/assets/subject.png");
                 width: 1rem;
                 height: 1rem;
                 left: 1.25rem;
-                top: 1.56rem;                
+                top: 1.56rem;
             }
         }
 
@@ -158,11 +158,11 @@
             & + span::before {
                 position: absolute;
                 z-index: 16;
-                content: url("../../assets/message.png");
+                content: url("../.{{URL::to('/');}}/assets/message.png");
                 width: 1rem;
                 height: 1rem;
                 left: 1.25rem;
-                top: 1.56rem;                
+                top: 1.56rem;
             }
         }
 
@@ -208,7 +208,7 @@
         }
 
 
-    
+
         &__form {
             display: grid;
             margin-top: 6rem;
