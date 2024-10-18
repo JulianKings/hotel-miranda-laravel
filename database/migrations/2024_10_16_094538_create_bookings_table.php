@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('notes', length: 5000);
             $table->timestamps();
 
-            $table->foreign('client_id')->references('id')->on('clients');
-            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
 
             /*
                 `id` int NOT NULL AUTO_INCREMENT,
