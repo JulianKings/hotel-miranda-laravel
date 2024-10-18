@@ -49,7 +49,7 @@
                     Bbq Party
                 </p>
             </div>
-            
+
             <div class="about__options__item" id="sofa">
                 <div class="about__options__image">
                     <img src="./assets/sofa.png" id="sofa-img" alt="Sofa Comfort" />
@@ -187,7 +187,7 @@
                         <img src="./assets/person.png" alt="Happy Person" />
                     </div>
                     <div class="about__counter__text">
-                        <p class="about__counter__number">8000</p>
+                        <p class="about__counter__number">{{$userCount}}</p>
                         <p>Happy Users</p>
                     </div>
                     <div class="about__counter__arrow">
@@ -229,7 +229,7 @@
                     <div class="swiper-slide about__images__container">
                         <img src="./assets/hotel3.png" alt="hotel image" />
                     </div>
-                    
+
                     <div class="swiper-slide about__images__container">
                         <img src="./assets/hotel4.png" alt="hotel image" />
                     </div>

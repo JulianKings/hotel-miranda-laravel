@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AboutController extends Controller
 {
@@ -12,7 +13,8 @@ class AboutController extends Controller
         $scripts = ['./scripts/menu.js', './scripts/socials.js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', './scripts/optionsHover.js', './scripts/swiper-about.js'];
         $title = 'About Us';
         $subtitle = 'About';
+        $userCount = User::count();
 
-        return view('hotel.about-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle]);
+        return view('hotel.about-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle, 'userCount' => $userCount]);
     }
 }

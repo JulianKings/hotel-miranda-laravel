@@ -2,7 +2,7 @@ const roomSwiper = new Swiper('.rooms__swiper', {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
-    initialSlide: 1,
+    initialSlide: 0,
     spaceBetween: 30,
 
     pagination: {
@@ -30,7 +30,7 @@ const roomSwiper = new Swiper('.rooms__swiper', {
                 ${(current !== total) ? '...' : ''}
             </div>
 
-            <div class="rooms__pagination__item" onclick=' ${(current !== total) ? 'roomSwiper.slideTo(' + total + ');' : ''}'>
+            <div class="rooms__pagination__item" onclick=' ${(current-1 !== total) ? 'roomSwiper.slideTo(' + total + ');' : ''}'>
                 ${(current !== total) ? total : ''}
             </div>
 
@@ -44,7 +44,7 @@ const roomSwiper = new Swiper('.rooms__swiper', {
 
 function goToSlide() {
     let jump = prompt('Select a page: ');
-    
+
     if(jump)
     {
         roomSwiper.slideTo((jump - 1));
