@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Room;
 
 class OffersController extends Controller
 {
@@ -12,6 +13,10 @@ class OffersController extends Controller
         $title = 'Our Offers';
         $subtitle = 'Offers';
 
-        return view('hotel.offers-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle]);
+        $offerList = Room::where('offer', '>', 10)->orderBy('offer', 'desc')->take(8)->get();
+        $popularRooms = Room::withCount('bookings')->orderBy('bookings_count', 'desc')->take(3)->get();
+
+        return view('hotel.offers-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle,
+            'offerList' => $offerList, 'popularRooms' => $popularRooms]);
     }
 }

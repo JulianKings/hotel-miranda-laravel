@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('customer_mail', length: 100);
             $table->string('customer_phone', length: 30);
             $table->timestamp('date', precision: 0);
-            $table->enum('status', ['active', 'archived']);
+            $table->enum('status', ['active', 'archived'])->default('active');
             $table->string('subject', length: 500);
             $table->string('comment', length: 5000);
             $table->timestamps();

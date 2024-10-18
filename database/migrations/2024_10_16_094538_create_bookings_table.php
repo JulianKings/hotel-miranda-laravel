@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->primary();
             $table->unsignedBigInteger('client_id');
             $table->timestamp('date', precision: 0);
-            $table->enum('status', ['checking_out', 'checking_in', 'in_progress']);
+            $table->enum('status', ['checking_out', 'checking_in', 'in_progress'])->default('checking_in');
             $table->unsignedBigInteger('room_id');
             $table->timestamp('check_in', precision: 0);
             $table->timestamp('check_out', precision: 0);
