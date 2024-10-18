@@ -154,7 +154,7 @@
                             </div>
                             @endif
                             <div class="index__rooms__image">
-                                <img src="{{$room->images}}" />
+                                <img src="{{$room->images}}" alt='Room Image' />
                             </div>
                             <div class="index__rooms__information-holder">
                                 <div class="index__rooms__information">

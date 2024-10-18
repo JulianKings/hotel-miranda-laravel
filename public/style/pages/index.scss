@@ -752,23 +752,21 @@
 
             &__container {
                 width: 100%;
-
-
+                max-width: 40rem;
             }
 
             &__image {
-            
+
                 & img {
                     max-height: 31.25rem;
                     width: 100%;
-                    aspect-ratio: 1 / 0.65;
+                    aspect-ratio: 1 / 0.75;
                 }
             }
 
             &__information {
                 top: -2.31rem;
                 flex-direction: row;
-                width: 90%;
             }
 
             &__name-box {
@@ -794,17 +792,17 @@
                 width: 5rem;
                 height: 5rem;
                 top: 30%;
-    
+
                 & img {
                     width: 1.5rem;
                     height: 1.5rem;
                 }
             }
-    
+
             &__swiper-next {
                 right: 18%;
             }
-    
+
             &__swiper-prev {
                 left: 18%;
             }
@@ -879,7 +877,7 @@
         &__images {
             @include flex-center;
             margin-top: 3.75rem;
-    
+
             &__swiper {
                 margin-bottom: 3.5rem;
                 margin-top: 3.75rem;
@@ -934,7 +932,7 @@
                 width: 100%;
                 max-width: 100%;
                 margin-top: 2.678rem;
-            
+
                 .swiper-slide {
                     width: 100% !important;
                     display: flex;
@@ -954,7 +952,7 @@
                 position: absolute;
                 top: 9.79rem;
                 right: 2.25rem;
-    
+
                 & img {
                     width: 1.5rem;
                     height: 1.5rem;
@@ -966,8 +964,8 @@
             }
 
             &__menu-description {
-                max-width: 50ch; 
-                min-width: 13rem;   
+                max-width: 50ch;
+                min-width: 13rem;
             }
 
             &__continue {
@@ -1025,6 +1023,7 @@
     }
 
     .swiper-slide-active {
+
         & .index__rooms {
             &__perks, &__information {
                 display: flex;

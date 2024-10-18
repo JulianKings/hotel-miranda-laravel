@@ -861,16 +861,16 @@
   }
   .index__rooms__container {
     width: 100%;
+    max-width: 40rem;
   }
   .index__rooms__image img {
     max-height: 31.25rem;
     width: 100%;
-    aspect-ratio: 1/0.65;
+    aspect-ratio: 1/0.75;
   }
   .index__rooms__information {
     top: -2.31rem;
     flex-direction: row;
-    width: 90%;
   }
   .index__rooms__name-box {
     justify-content: flex-start;

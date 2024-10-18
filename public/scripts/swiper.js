@@ -52,9 +52,12 @@ const swiper = new Swiper('.index__rooms__swiper', {
 
     breakpoints: {
         1000: {
+            slidesPerView: 'auto',
             centeredSlides: true,
-            slidesPerView: 2,
-            spaceBetween: 50
+            spaceBetween: 55,
+            cssWidthAndHeight: true,
+            visibilityFullFit: true,
+            autoResize: false
         }
     },
 
@@ -64,6 +67,10 @@ const swiper = new Swiper('.index__rooms__swiper', {
       prevEl: '.index__rooms__swiper-prev'
     },
 });
+
+swiper.on('resize', function (instance) {
+    document.querySelector('.swiper-wrapper').classList.toggle('.slider-active', instance.virtualSize > instance.size);
+  });
 
 let coreSwiper;
 let initCore = false;
@@ -82,7 +89,7 @@ function swiperResize() {
                 // Optional parameters
                 direction: 'horizontal',
                 loop: true,
-            
+
                 pagination: {
                     el: '.facilities__pagination',
                     bulletClass: 'facilities__bullet',
@@ -99,7 +106,7 @@ function swiperResize() {
                 direction: 'horizontal',
                 loop: true,
                 spaceBetween: 30,
-            
+
                 navigation: {
                     nextEl: '.index__menu__right',
                     prevEl: '.index__menu__left'
@@ -115,7 +122,7 @@ function swiperResize() {
                 loop: true,
                 initialSlide: 1,
                 spaceBetween: 10,
-            
+
                 pagination: {
                     el: '.index__images__pagination',
                     bulletClass: 'index__images__bullet',
@@ -150,7 +157,7 @@ function swiperResize() {
 			coreSwiper.destroy();
 			initCore = false;
     	}
-        
+
         if (!initMenuBig) {
 			initMenuBig = true;
 			menuSwiperBig = new Swiper('.index__menu__swiper-big', {
@@ -158,7 +165,7 @@ function swiperResize() {
                 direction: 'horizontal',
                 loop: true,
                 spaceBetween: 30,
-            
+
                 navigation: {
                     nextEl: '.index__menu__right',
                     prevEl: '.index__menu__left'
