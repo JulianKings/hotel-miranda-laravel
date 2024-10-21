@@ -27,41 +27,46 @@
                             <li>
                                 <strong>Type:</strong> {{$activity->type}}
                             </li>
-                            
+
                             <li>
                                 <strong>Date:</strong> {{$activity->date}}
                             </li>
-                            
+
                             <li>
                                 <strong>Notes:</strong> {{$activity->notes}}
                             </li>
 
-                            @if ($activity->paid)
-                                <li>
-                                    <strong>PAID</strong>
-                                </li>
-                            @else
-                                <li>
-                                    <strong>UNPAID</strong>
-                                </li>
-                            @endif
+                            <li>
+                                <strong>
+                                    @if ($activity->paid)
+                                        PAID
+                                    @else
+                                        UNPAID
+                                    @endif
+                                </strong>
+                            </li>
 
-                            @if ($activity->satisfaction == null)
-                                <li>
+                            <li>
+                                @if ($activity->satisfaction == null)
                                     <strong>No valuation available</strong>
-                                </li>
-                            @else
-                                <li>
+                                @else
                                     <strong>Satisfaction:</strong> {{$activity->satisfaction}}
-                                </li>
-                            @endif
+                                @endif
+                            </li>
                         </ul>
-                        <x-primary-button type="button" class="px-12" onclick="window.location='{{ route('activities.edit', ['id' => $activity->id]) }}'">
-                            Edit
-                        </x-primary-button>
-                        <x-primary-button type="button" class="px-12" onclick="window.location='{{ route('activities.destroy',  ['id' => $activity->id]) }}'">
-                            Delete
-                        </x-primary-button>
+
+                        <form method="post" action="{{ route('activities.destroy', ['id' => $activity->id]) }}" class="mt-6 space-y-6">
+                            @csrf
+                            @method('delete')
+
+                            <x-primary-button type="button" class="px-12" onclick="window.location='{{ route('activities.edit', ['id' => $activity->id]) }}'">
+                                Edit
+                            </x-primary-button>
+
+                            <x-primary-button type="submit" class="px-12">
+                                Delete
+                            </x-primary-button>
+                        </form>
                     </div>
                 </div>
             </div>

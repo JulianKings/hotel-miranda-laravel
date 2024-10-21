@@ -27,12 +27,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/activities', [ActivityController::class, 'index'])->name('activities.get');
+    Route::get('/activities', [ActivityController::class, 'index'])->name('activities.index');
     Route::get('/activities/add', [ActivityController::class, 'create'])->name('activities.create');
     Route::post('/activities/add', [ActivityController::class, 'store'])->name('activities.store');
     Route::get('/activities/edit/{id}', [ActivityController::class, 'edit'])->name('activities.edit');
     Route::put('/activities/edit/{id}', [ActivityController::class, 'update'])->name('activities.update');
-    Route::get('/activities/delete/{id}', [ActivityController::class, 'destroy'])->name('activities.destroy');
+    Route::delete('/activities/delete/{id}', [ActivityController::class, 'destroy'])->name('activities.destroy');
 });
 
 require __DIR__.'/auth.php';

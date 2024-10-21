@@ -15,7 +15,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        return view('activities.get', [
+        return view('activities.index', [
             'activities' => Auth::user()->activities(),
         ]);
     }
@@ -46,15 +46,7 @@ class ActivityController extends Controller
             'client_id' => $request->user()->id
         ]);
 
-        return redirect(route('activities.get', absolute: false));
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return redirect(route('activities.index', absolute: false));
     }
 
     /**
@@ -62,16 +54,14 @@ class ActivityController extends Controller
      */
     public function edit(string $id)
     {
-        $activity = Activity::findOr($id, function () {
-            return null;
-        });
+        $activity = Activity::findOrFail($id);
 
-        if($activity == null)
+        if($activity->client_id == Auth::user()->id)
         {
-            return redirect(route('activities.get', absolute: false));
-        } else {
             $formattedDate = Carbon::parse($activity->date)->format('Y-m-d');
             return view('activities.edit', ['activity' => $activity, 'formattedDate' => $formattedDate]);
+        } else {
+            return redirect(route('activities.index', absolute: false));
         }
     }
 
@@ -88,14 +78,10 @@ class ActivityController extends Controller
             'satisfaction' => ['required', 'integer', 'max:10', 'min:0']
         ]);
 
-        $activity = Activity::findOr($id, function () {
-            return null;
-        });
+        $activity = Activity::findOrFail($id);
 
-        if($activity == null)
+        if($activity->client_id == Auth::user()->id)
         {
-            return redirect(route('activities.get', absolute: false));
-        } else {
             $activity->type = $request->input('type');
             $activity->date = $request->input('date');
             $activity->notes = $request->input('notes');
@@ -103,7 +89,9 @@ class ActivityController extends Controller
 
             $activity->save();
 
-            return redirect(route('activities.get', absolute: false));
+            return redirect(route('activities.index', absolute: false));
+        } else {
+            return redirect(route('activities.index', absolute: false));
         }
     }
 
@@ -112,16 +100,14 @@ class ActivityController extends Controller
      */
     public function destroy(string $id)
     {
-        $activity = Activity::findOr($id, function () {
-            return null;
-        });
+        $activity = Activity::findOrFail($id);
 
-        if($activity == null)
+        if($activity->client_id == Auth::user()->id)
         {
-            return redirect(route('activities.get', absolute: false));
-        } else {
             Activity::destroy($id);
-            return redirect(route('activities.get', absolute: false));
+            return redirect(route('activities.index', absolute: false));
+        } else {
+            return redirect(route('activities.index', absolute: false));
         }
     }
 }
