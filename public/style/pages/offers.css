@@ -69,8 +69,18 @@
   margin-top: 0.25rem;
   color: #BDBDBD;
 }
-.room__details span {
+.room__details a {
+  text-decoration: none;
+  color: #BDBDBD;
+}
+.room__details__price {
   color: #BEAD8E;
+}
+.room__details__booked {
+  color: #3f0000;
+}
+.room__details__unavailable {
+  color: #BDBDBD;
 }
 .room__perks {
   position: absolute;
@@ -91,6 +101,12 @@
   width: 1rem;
 }
 
+@media only screen and (min-width: 1000px) {
+  .room__image img {
+    width: 100%;
+    max-height: 31.25rem;
+  }
+}
 .offers {
   margin-top: 3rem;
   display: flex;

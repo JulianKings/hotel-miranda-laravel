@@ -6,7 +6,7 @@
 
     &__image {
         min-height: 13.63rem;
-        
+
         & img {
             width: 100%;
             height: 16.63rem;
@@ -56,8 +56,21 @@
         margin-top: 0.25rem;
         color: #BDBDBD;
 
-        & span {
+        & a {
+            text-decoration: none;
+            color: #BDBDBD;
+        }
+
+        &__price {
             color: $brown;
+        }
+
+        &__booked {
+            color: #3f0000;
+        }
+
+        &__unavailable {
+            color: #BDBDBD;
         }
     }
 
@@ -86,7 +99,7 @@
 @media only screen and (min-width: 1000px) {
     .room {
         &__image {
-        
+
             & img {
                 width: 100%;
                 max-height: 31.25rem;

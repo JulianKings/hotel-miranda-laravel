@@ -21,6 +21,16 @@ class Room extends Model
         return number_format((float)($this->originalPrice() * (1 - $this->offer / 100)), 2, '.', '');
     }
 
+    public function isAvailable(): bool
+    {
+        return $this->status == 'available';
+    }
+
+    public function isBooked(): bool
+    {
+        return $this->status == 'booked';
+    }
+
     public function amenities(): BelongsToMany
     {
         return $this->belongsToMany(Amenity::class, 'room_amenities', 'room_id');

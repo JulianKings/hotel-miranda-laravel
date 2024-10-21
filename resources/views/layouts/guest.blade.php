@@ -17,7 +17,7 @@
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
-                <a href="{{ route('hotel-index') }}">
+                <a href="{{ route('hotel.index') }}">
                     <img src="{{URL::to('/');}}/assets/big-logo.png" class="header__logo--big" alt="Logo Icon" />
                 </a>
             </div>

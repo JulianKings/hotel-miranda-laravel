@@ -15,25 +15,25 @@
 
         <nav class="header__desktop-navlist">
             <ul>
-                <li class="header__navlist__item"><a href="{{URL::to('/');}}/about">About Us</a></li>
-                <li class="header__navlist__item"><a href="{{URL::to('/');}}/rooms">Rooms</a></li>
-                <li class="header__navlist__item"><a href="{{URL::to('/');}}/offers">Offers</a></li>
-                <li class="header__navlist__item"><a href="{{URL::to('/');}}/contact">Contact</a></li>
+                <li class="header__navlist__item"><a href="{{route('hotel.about')}}">About Us</a></li>
+                <li class="header__navlist__item"><a href="{{route('hotel.rooms')}}">Rooms</a></li>
+                <li class="header__navlist__item"><a href="{{route('hotel.offers')}}">Offers</a></li>
+                <li class="header__navlist__item"><a href="{{route('hotel.contact')}}">Contact</a></li>
             </ul>
         </nav>
 
         <div class="header__content__actions">
-            <div class="header__content__actions__item"><a href='{{URL::to('/');}}/login'><img src="{{URL::to('/');}}/assets/account.png" alt="Account" /></a></div>
+            <div class="header__content__actions__item"><a href='{{route('login')}}'><img src="{{URL::to('/');}}/assets/account.png" alt="Account" /></a></div>
             <div class="header__content__actions__item"><img src="{{URL::to('/');}}/assets/search.png" alt="Search" /></div>
         </div>
     </div>
 
     <nav class="header__navlist">
         <ul>
-            <li class="header__navlist__item"><a href="{{URL::to('/');}}/about">About Us</a></li>
-            <li class="header__navlist__item"><a href="{{URL::to('/');}}/rooms">Rooms</a></li>
-            <li class="header__navlist__item"><a href="{{URL::to('/');}}/offers">Offers</a></li>
-            <li class="header__navlist__item"><a href="{{URL::to('/');}}/contact">Contact</a></li>
+            <li class="header__navlist__item"><a href="{{route('hotel.about')}}">About Us</a></li>
+            <li class="header__navlist__item"><a href="{{route('hotel.rooms')}}">Rooms</a></li>
+            <li class="header__navlist__item"><a href="{{route('hotel.offers')}}">Offers</a></li>
+            <li class="header__navlist__item"><a href="{{route('hotel.contact')}}">Contact</a></li>
         </ul>
     </nav>
 </header>
@@ -43,7 +43,7 @@
         <p class="information-header__subtitle">the ultimate luxury</p>
         <p class="information-header__title">{{$title}}</p>
         <div class="information-header__navigation">
-            <a href="{{URL::to('/');}}/index">Home</a>
+            <a href="{{route('hotel.index')}}">Home</a>
             <span id="separator">|</span>
             <span>{{$subtitle}}</span>
         </div>

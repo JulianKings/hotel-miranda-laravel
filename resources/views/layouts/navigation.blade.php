@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('hotel-index') }}">
+                    <a href="{{ route('hotel.index') }}">
                         <img src="{{URL::to('/');}}/assets/logo_icon.png" class="header__logo--small" alt="Logo Icon" />
                     </a>
                 </div>

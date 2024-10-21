@@ -26,7 +26,7 @@ class RoomFactory extends Factory
             'images' => 'http://localhost/assets/rooms'. fake()->numberBetween(1,6) .'.png',
             'price' => fake()->numberBetween(4000, 50000),
             'offer' => fake()->numberBetween(0, 80),
-            'status' => 'available',
+            'status' => fake()->randomElements(['booked', 'maintenance', 'available'])[0],
             'description' => fake()->text(600)
         ];
     }
