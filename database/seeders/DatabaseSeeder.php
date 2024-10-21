@@ -17,20 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Room::factory(30)->create();
         Contact::factory(30)->create();
 
-        User::factory()->create([
-            'name' => 'test',
-            'email' => 'test@test.com'
-        ]);
-
-        User::factory()->create([
-            'name' => 'test2',
-            'email' => 'julli123@hotmail.es'
-        ]);
-
-        Booking::factory(30)->create();
+        User::factory()->primaryTestUser()->create();
+        User::factory()->secondaryTestUser()->create();
+        User::factory()->tertiaryTestUser()->create();
 
         $amenities = ['Air conditioner', 'Breakfast', 'Cleaning', 'Grocery', 'Shop near', '24/7 Online Support', 'Smart Security', 'High speed WiFi', 'Kitchen', 'Shower', 'Single bed', 'Towels', 'Strong locker', 'Expert Team'];
 
@@ -42,10 +33,7 @@ class DatabaseSeeder extends Seeder
             ]);
         endforeach;
 
-        foreach(Room::all() as $room):
-            RoomAmenity::factory(5)->create([
-                'room_id' => $room->id
-            ]);
-        endforeach;
+        Room::factory(50)->has(Booking::factory()->count(fake()->numberBetween(5, 15)))->create();
+
     }
 }

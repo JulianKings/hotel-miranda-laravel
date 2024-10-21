@@ -41,4 +41,28 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function primaryTestUser(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'name' => 'test',
+            'email' => 'test@test.com'
+        ]);
+    }
+
+    public function secondaryTestUser(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'name' => 'test2',
+            'email' => 'julli123@hotmail.es'
+        ]);
+    }
+
+    public function tertiaryTestUser(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'name' => 'test3',
+            'email' => 'woah@test.com'
+        ]);
+    }
 }

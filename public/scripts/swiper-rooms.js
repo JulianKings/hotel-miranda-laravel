@@ -11,7 +11,7 @@ const roomSwiper = new Swiper('.rooms__swiper', {
         type: 'custom',
         renderCustom: function(swiper, current, total) {
             return `<div class="rooms__pagination__item" onclick='roomSwiper.slidePrev();'>
-                <img src='{{URL::to('/');}}/assets/prev_page.png' alt="Previous Page" />
+                <img src='./assets/prev_page.png' alt="Previous Page" />
             </div>
 
             <div class="rooms__pagination__item" onclick='${(current-2 >= 0) ? 'roomSwiper.slidePrev();' : ''}'>
@@ -35,7 +35,7 @@ const roomSwiper = new Swiper('.rooms__swiper', {
             </div>
 
             <div class="rooms__pagination__item pagination-next" onclick='roomSwiper.slideNext();'>
-                <img src='{{URL::to('/');}}/assets/next_page.png' alt="Next Page" />
+                <img src='./assets/next_page.png' alt="Next Page" />
             </div>`;
         }
     },

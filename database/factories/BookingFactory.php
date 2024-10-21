@@ -22,7 +22,7 @@ class BookingFactory extends Factory
             'client_id' => fake()->numberBetween(1, User::all()->count()),
             'date' => fake()->dateTimeBetween(),
             'status' => 'checking_out',
-            'room_id' => fake()->numberBetween(1, Room::all()->count()),
+            'room_id' => Room::factory(),
             'check_in' => fake()->dateTimeBetween(),
             'check_out' => fake()->dateTimeBetween(),
             'notes' => fake()->text(600)

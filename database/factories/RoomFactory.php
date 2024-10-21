@@ -3,6 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\RoomAmenity;
+use App\Models\Room;
+use App\Models\Amenity;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Room>
@@ -26,5 +29,12 @@ class RoomFactory extends Factory
             'status' => 'available',
             'description' => fake()->text(600)
         ];
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (Room $room) {
+            RoomAmenity::factory()->count(rand(1, Amenity::all()->count()))->create(['room_id' => $room->id]);
+        });
     }
 }

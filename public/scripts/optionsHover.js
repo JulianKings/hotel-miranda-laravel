@@ -7,7 +7,7 @@ for(const element of options)
         const image = document.querySelector('#' + currentElementId + '-img');
         if(image)
         {
-            image.src = '{{URL::to('/');}}/assets/' + currentElementId + '_white.png';
+            image.src = './assets/' + currentElementId + '_white.png';
         }
     });
 
@@ -16,7 +16,7 @@ for(const element of options)
         const image = document.querySelector('#' + currentElementId + '-img');
         if(image)
         {
-            image.src = '{{URL::to('/');}}/assets/' + currentElementId + '.png';
+            image.src = './assets/' + currentElementId + '.png';
         }
     })
 }

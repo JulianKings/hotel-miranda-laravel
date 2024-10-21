@@ -7,7 +7,7 @@ menuIcon.addEventListener('blur', (event) => {
 
     if(target.getAttribute('data-open-menu') && target.getAttribute('data-open-menu') === 'open')
     {
-        target.src = '{{URL::to('/');}}/assets/menu.png';
+        target.src = './assets/menu.png';
         target.style.height = '0.81rem';
         target.style.width = '1.25rem';
         target.style['margin-right'] = '0';
@@ -22,12 +22,12 @@ function alternateMenu(target)
 {
     if(target.getAttribute('data-open-menu') && target.getAttribute('data-open-menu') === 'open')
     {
-        target.src = '{{URL::to('/');}}/assets/menu.png';
+        target.src = './assets/menu.png';
         target.setAttribute('data-open-menu', 'closed');
         target.classList.toggle('header__content__menu--cross', false);
         menuContainer.classList.toggle('header__navlist--open', false);
     } else {
-        target.src = '{{URL::to('/');}}/assets/cross.png';
+        target.src = './assets/cross.png';
 
         target.setAttribute('data-open-menu', 'open');
         target.classList.toggle('header__content__menu--cross', true);
