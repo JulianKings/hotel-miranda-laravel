@@ -92,8 +92,12 @@
 .contact__form__item {
   position: relative;
 }
+.contact__form__error {
+  color: #d63939;
+  padding: 1.65rem 0;
+}
 .contact__form__input, .contact__form__textarea {
-  height: 4.19rem;
+  min-height: 4.19rem;
   background-color: #F8F8F8;
   width: 100%;
   padding: 1.56rem 1.25rem;
@@ -111,7 +115,7 @@
 .contact__form__name + span::before {
   position: absolute;
   z-index: 16;
-  content: url("../.{{URL::to('/');}}/assets/name.png");
+  content: url("../../assets/name.png");
   width: 1rem;
   height: 1rem;
   left: 1.25rem;
@@ -120,7 +124,7 @@
 .contact__form__phone + span::before {
   position: absolute;
   z-index: 16;
-  content: url("../.{{URL::to('/');}}/assets/cell.png");
+  content: url("../../assets/cell.png");
   width: 1rem;
   height: 1rem;
   left: 1.25rem;
@@ -129,7 +133,7 @@
 .contact__form__email + span::before {
   position: absolute;
   z-index: 16;
-  content: url("../.{{URL::to('/');}}/assets/email.png");
+  content: url("../../assets/email.png");
   width: 1rem;
   height: 1rem;
   left: 1.25rem;
@@ -138,7 +142,7 @@
 .contact__form__subject + span::before {
   position: absolute;
   z-index: 16;
-  content: url("../.{{URL::to('/');}}/assets/subject.png");
+  content: url("../../assets/subject.png");
   width: 1rem;
   height: 1rem;
   left: 1.25rem;
@@ -150,7 +154,7 @@
 .contact__form__textarea + span::before {
   position: absolute;
   z-index: 16;
-  content: url("../.{{URL::to('/');}}/assets/message.png");
+  content: url("../../assets/message.png");
   width: 1rem;
   height: 1rem;
   left: 1.25rem;
@@ -195,7 +199,7 @@
     display: grid;
     margin-top: 6rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4.3rem 4.3rem 1fr 1fr;
+    grid-template-rows: min(1fr, 4.3rem) min(1fr, 4.3rem) 1fr 1fr;
     width: 70%;
     max-width: 100ch;
     gap: 1.5rem;

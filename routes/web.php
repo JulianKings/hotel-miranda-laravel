@@ -15,6 +15,7 @@ Route::get('/offers', [RoomsController::class, 'offers'])->name('hotel.offers');
 Route::get('/rooms', [RoomsController::class, 'index'])->name('hotel.rooms');
 Route::get('/rooms/{id}', [RoomsController::class, 'show'])->name('hotel.rooms.detail');
 Route::get('/contact', [ContactController::class, 'index'])->name('hotel.contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('hotel.contact.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
