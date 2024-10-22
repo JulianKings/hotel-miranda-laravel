@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="{{$style}}" />
     @endforeach
 
+    @toastifyCss
+
     @foreach ($scripts as $script)
         <script type="text/javascript" src="{{$script}}" defer></script>
     @endforeach

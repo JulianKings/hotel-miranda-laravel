@@ -33,7 +33,11 @@ class DatabaseSeeder extends Seeder
             ]);
         endforeach;
 
-        Room::factory(50)->has(Booking::factory()->count(fake()->numberBetween(5, 15)))->create();
+        Room::factory(50)->has(Booking::factory()->count(fake()->numberBetween(5, 15))
+            ->state(function (array $attributes, Room $room) {
+                return ['check_out' => ($room->status == 'booked') ? fake()->dateTimeBetween(now(), '+5 months') : fake()->dateTimeBetween()];
+            })
+        )->create();
 
     }
 }

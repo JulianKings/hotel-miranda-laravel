@@ -85,3 +85,5 @@
         <p>Terms of use    |    Privacy Environmental Policy</p>
     </div>
 </footer>
+
+@toastifyJs

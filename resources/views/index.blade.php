@@ -90,7 +90,7 @@
                 <p class="index__about__caption">Discover Our Underground</p>
                 <p class="index__about__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <div class="index__about__button">
-                    <button type="button" class="button">Book now</button>
+                    <button type="button" class="button" onclick="window.location='{{ route('hotel.rooms') }}'">Book now</button>
                 </div>
             </section>
 
@@ -194,7 +194,7 @@
                     <iframe width="335" height="270" src="https://www.youtube.com/embed/Bu3Doe45lcU?si=jcLt9gfeRDWPrmgr&amp;start=25&amp;end=75" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <div class="index__video__button">
-                    <button type="button" class="button">Book now</button>
+                    <button type="button" class="button" onclick="window.location='{{ route('hotel.rooms') }}'">Book now</button>
                 </div>
             </div>
             <div class="index__video__empty"></div>

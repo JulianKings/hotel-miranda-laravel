@@ -1,3 +1,9 @@
+@php
+    if($errors->updateActivity->any()) {
+        toastify()->error('An error has happened: ' . $errors->updateActivity->first(), ['position' => 'center']);
+    }
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

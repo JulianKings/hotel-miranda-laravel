@@ -46,6 +46,8 @@ class ActivityController extends Controller
             'client_id' => $request->user()->id
         ]);
 
+        toastify()->success('New activity created succesfully!', ['position' => 'center']);
+
         return redirect(route('activities.index', absolute: false));
     }
 
@@ -105,6 +107,9 @@ class ActivityController extends Controller
         if($activity->client_id == Auth::user()->id)
         {
             Activity::destroy($id);
+
+            toastify()->success('Activity deleted successfully!', ['position' => 'center']);
+
             return redirect(route('activities.index', absolute: false));
         } else {
             return redirect(route('activities.index', absolute: false));
