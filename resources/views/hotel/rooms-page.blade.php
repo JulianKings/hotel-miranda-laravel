@@ -9,7 +9,7 @@
                 @foreach ($roomList as $roomPage)
                     <section class="swiper-slide rooms__list">
                         @foreach ($roomPage as $room)
-                            @include('hotel.components.room-component', ['room' => $room, 'roomClass' => 'room'])
+                            @include('hotel.components.room-component', ['room' => $room, 'roomClass' => 'room', 'check_in' => $checkin, 'check_out' => $checkout])
                         @endforeach
                     </section>
                 @endforeach

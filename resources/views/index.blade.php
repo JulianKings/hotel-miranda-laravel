@@ -53,14 +53,18 @@
     </header>
 
     <main class="index">
-        <section class="index__calendar">
+        <form class="index__calendar" method="get" action="{{ route('hotel.rooms') }}">
+            @csrf
+            @method('get')
+
+
             <div class="index__calendar__form-container">
                 <div class="index__calendar__form">
                     <label for="arrival-date" class="index__calendar__label">Arrival Date</label>
                     <div class="index__calendar__construct">
                         <span class="index__calendar__date">
                             <span class="index__calendar__datepicker"></span>
-                            <input type="date" id="arrival-date" class="index__calendar__dateinput" />
+                            <input type="date" id="arrival-date" name="check_in" class="index__calendar__dateinput" />
                         </span>
                         <input type="text" id="arrival-date-text" class="index__calendar__input" />
                     </div>
@@ -71,7 +75,7 @@
                     <div class="index__calendar__construct">
                         <span class="index__calendar__date">
                             <span class="index__calendar__datepicker"></span>
-                            <input type="date" id="departure-date" class="index__calendar__dateinput" />
+                            <input type="date" id="departure-date" name="check_out" class="index__calendar__dateinput" />
                         </span>
                         <input type="text" id="departure-date-text" class="index__calendar__input" />
                     </div>
@@ -79,9 +83,9 @@
             </div>
 
             <div class="index__calendar__button">
-                <button type="button" class="button">Check Availability</button>
+                <button type="submit" class="button">Check Availability</button>
             </div>
-        </section>
+        </form>
 
         <section class="index__discover-wrapper">
             <section class="index__about">

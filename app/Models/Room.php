@@ -31,6 +31,11 @@ class Room extends Model
         return $this->status == 'booked';
     }
 
+    public function isUnavailable(): bool
+    {
+        return $this->status == 'maintenance';
+    }
+
     public function amenities(): BelongsToMany
     {
         return $this->belongsToMany(Amenity::class, 'room_amenities', 'room_id');
