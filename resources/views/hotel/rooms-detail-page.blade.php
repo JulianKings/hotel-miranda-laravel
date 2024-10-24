@@ -42,6 +42,7 @@
                             @method('post')
 
                             <p class="room-detail__calendar__title">Payment information</p>
+                            @error ('general') <p class="room-detail__calendar__error">{{$message}}</p> @enderror
                             <div class="room-detail__calendar__form">
                                 <label for="card-number" class="room-detail__calendar__label">Card Number</label>
                                 <div class="room-detail__calendar__construct">

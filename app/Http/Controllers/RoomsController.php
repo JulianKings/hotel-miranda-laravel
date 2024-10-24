@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Booking;
 use Carbon\Carbon;
+use App\Interfaces\PaymentService;
 use Illuminate\Support\Facades\Auth;
 
 class RoomsController extends Controller
@@ -81,7 +82,7 @@ class RoomsController extends Controller
             'roomData' => $roomData, 'relatedRooms' => $relatedRooms, 'checkin' => $checkin, 'checkout' => $checkout, 'validCheck' => $validCheck]);
     }
 
-    public function storeBooking($id, Request $request) {
+    public function storeBooking($id, Request $request, PaymentService $payment) {
 
         if(Auth::check()) {
             $request->validate([
@@ -94,19 +95,36 @@ class RoomsController extends Controller
                 'check_out' => ['required', 'date'],
             ]);
 
-            $booking = Booking::create([
-                'client_id' => $request->user()->id,
-                'date' => now(),
-                'status' => 'in_progress',
-                'room_id' => $id,
-                'check_in' => Carbon::parse($request->input('check_in')),
-                'check_out' => Carbon::parse($request->input('check_out')),
-                'notes' => ''
-            ]);
+            $card = [
+                'card_number' => $request->input('card_number'),
+                'card_month' => $request->input('card_month'),
+                'card_year' => $request->input('card_year'),
+                'card_key' => $request->input('card_key'),
+                'card_owner' => $request->input('card_owner'),
+                'user_id' => $request->user()->id,
+                'room_id' => $id
+            ];
 
-            toastify()->success('Booking reserved succesfully!', ['position' => 'center']);
+            if($payment->tryPayment($card)) {
+                $booking = Booking::create([
+                    'client_id' => $request->user()->id,
+                    'date' => now(),
+                    'status' => 'in_progress',
+                    'room_id' => $id,
+                    'check_in' => Carbon::parse($request->input('check_in')),
+                    'check_out' => Carbon::parse($request->input('check_out')),
+                    'notes' => ''
+                ]);
 
-            return redirect(route('bookings.index', absolute: false));
+                toastify()->success('Booking reserved succesfully!', ['position' => 'center']);
+
+                return redirect(route('bookings.index', absolute: false));
+            } else {
+                //toastify()->error('Payment failed!', ['position' => 'center']);
+
+                return redirect()->back()->withInput()->withErrors(['general' => ['Payment failed.']]);;
+            }
+
         }
     }
 }
