@@ -6,6 +6,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('hotel.index');
@@ -33,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/activities/edit/{id}', [ActivityController::class, 'edit'])->name('activities.edit');
     Route::put('/activities/edit/{id}', [ActivityController::class, 'update'])->name('activities.update');
     Route::delete('/activities/delete/{id}', [ActivityController::class, 'destroy'])->name('activities.destroy');
+
+    Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 });
 
 require __DIR__.'/auth.php';

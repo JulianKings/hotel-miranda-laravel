@@ -85,7 +85,7 @@ class RoomsController extends Controller
 
         if(Auth::check()) {
             $request->validate([
-                'card_number' => ['required', 'string', 'regex:/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/i', 'max:255'],
+                'card_number' => ['required', 'string', 'regex:/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/i', 'max:255'],
                 'card_month' => ['required', 'integer', 'max:12', 'min:0'],
                 'card_year' => ['required', 'integer', 'max:'.(date('Y') + 30), 'min:'.date('Y')],
                 'card_key' => ['required', 'integer', 'max:99999'],
