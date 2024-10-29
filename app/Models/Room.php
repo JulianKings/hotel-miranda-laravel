@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Utils\RoomUtils;
 
 class Room extends Model
 {
@@ -23,12 +24,12 @@ class Room extends Model
 
     public function isAvailable(): bool
     {
-        return $this->status == 'available';
+        return $this->isAvailableOnInterval(now(), now()->addDays(7));
     }
 
-    public function isBooked(): bool
+    public function isAvailableOnInterval($checkin, $checkout)
     {
-        return $this->status == 'booked';
+        return (RoomUtils::availableBetweenInterval($checkin, $checkout)->where('id', $this->id)->get())->count() > 0;
     }
 
     public function isUnavailable(): bool

@@ -10,7 +10,7 @@ use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('hotel.index');
-Route::get('/index', [IndexController::class, 'index'])->name('hotel.index.long');
+Route::get('/index', [IndexController::class, 'indexLong'])->name('hotel.index.long');
 Route::get('/about', [AboutController::class, 'index'])->name('hotel.about');
 Route::get('/offers', [RoomsController::class, 'offers'])->name('hotel.offers');
 Route::get('/rooms', [RoomsController::class, 'index'])->name('hotel.rooms');

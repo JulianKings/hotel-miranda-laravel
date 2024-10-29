@@ -1,4 +1,9 @@
-@include('hotel.layout.head-component', ['styles' => $styles, 'scripts' => $scripts])
+@include('hotel.layout.head-component', [
+    'styles' =>
+        ['https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', '../style/style.css', '../style/pages/room_details.css'],
+    'scripts' =>
+        ['../scripts/menu.js', '../scripts/socials.js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', '../scripts/datePickerRoom.js', '../scripts/swiper-roomDetails.js', '../scripts/updateBookNow.js']
+])
 
 @php
     if($errors->any()) {
@@ -7,7 +12,7 @@
 @endphp
 
 <body class="content">
-    @include('hotel.layout.header-component', ['title' => $title, 'subtitle' => $subtitle])
+    @include('hotel.layout.header-component', ['title' => 'Ultimate Room', 'subtitle' => 'Room Details'])
 
     <main class="room-detail">
         <div class="room-detail__header">

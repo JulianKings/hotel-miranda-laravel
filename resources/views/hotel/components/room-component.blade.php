@@ -27,10 +27,10 @@
             <span class="room__details__price">${{$room->finalPrice()}}/Night</span>
             @if($room->isAvailable())
                 <a href="{{$roomLink}}">Booking Now</a>
-            @elseif ($room->isBooked())
-                <span class="room__details__booked">Booked</span>
-            @else
+            @elseif ($room->isUnavailable())
                 <span class="room__details__unavailable">Unavailable</span>
+            @else
+                <span class="room__details__booked">Booked</span>
             @endif
         </p>
     </div>

@@ -16,4 +16,9 @@ class IndexController extends Controller
 
         return view('index', ['styles' => $styles, 'scripts' => $scripts, 'rooms' => $popularRooms]);
     }
+
+    public function indexLong()
+    {
+        return redirect('/');
+    }
 }

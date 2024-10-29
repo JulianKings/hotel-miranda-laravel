@@ -8,59 +8,39 @@ use App\Models\Booking;
 use Carbon\Carbon;
 use App\Interfaces\PaymentService;
 use Illuminate\Support\Facades\Auth;
+use App\Utils\RoomUtils;
 
 class RoomsController extends Controller
 {
     public function index(Request $request) {
-        $styles = ['https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', './style/style.css', './style/pages/rooms.css'];
-        $scripts = ['./scripts/menu.js', './scripts/socials.js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', './scripts/swiper-rooms.js', './scripts/updateBookNow.js'];
-        $title = 'Ultimate Room';
-        $subtitle = 'Rooms';
-        $roomList = collect(Room::all())->chunk(6);
-
         $token = $request->input('_token', null);
+        $roomList = [];
 
         if($token != null) {
             $checkin = $request->input('check_in', null);
             $checkout = $request->input('check_out', null);
 
             if($checkin != null && $checkout != null) {
-                $roomList = collect(Room::whereDoesntHave('bookings', function($query) use ($checkin, $checkout) {
-                    $query->whereBetween('check_out', [$checkin, $checkout])->orWhereBetween('check_in', [$checkin, $checkout])->orWhere(
-                        function($subquery) use ($checkin, $checkout) {
-                            $subquery->where('check_in', '<=', $checkin)->where('check_out', '>=', $checkout);
-                    });
-                })->whereNot('status', 'maintenance')->get())->chunk(6);
+                $roomList = collect(RoomUtils::availableBetweenInterval($checkin, $checkout)->get())->chunk(6);
 
             }
         } else {
             $checkin = null;
             $checkout = null;
+            $roomList = collect(Room::all())->chunk(6);
         }
 
-        return view('hotel.rooms-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle
-            , 'roomList' => $roomList, 'checkin' => $checkin, 'checkout' => $checkout]);
+        return view('hotel.rooms-page', ['roomList' => $roomList, 'checkin' => $checkin, 'checkout' => $checkout]);
     }
 
     public function offers() {
-        $styles = ['https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', './style/style.css', './style/pages/offers.css'];
-        $scripts = ['./scripts/menu.js', './scripts/socials.js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', './scripts/swiper-offers.js', './scripts/updateBookNow.js'];
-        $title = 'Our Offers';
-        $subtitle = 'Offers';
-
         $offerList = Room::where('offer', '>', 10)->orderBy('offer', 'desc')->take(8)->get();
         $popularRooms = Room::withCount('bookings')->orderBy('bookings_count', 'desc')->take(3)->get();
 
-        return view('hotel.offers-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle,
-            'offerList' => $offerList, 'popularRooms' => $popularRooms]);
+        return view('hotel.offers-page', ['offerList' => $offerList, 'popularRooms' => $popularRooms]);
     }
 
     public function show(string $id, Request $request) {
-        $styles = ['https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', '../style/style.css', '../style/pages/room_details.css'];
-        $scripts = ['../scripts/menu.js', '../scripts/socials.js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', '../scripts/datePickerRoom.js', '../scripts/swiper-roomDetails.js', '../scripts/updateBookNow.js'];
-        $title = 'Ultimate Room';
-        $subtitle = 'Room Details';
-
         $roomData = Room::findOrFail($id);
         $checkin = $request->input('check_in', null);
         $checkout = $request->input('check_out', null);
@@ -68,18 +48,12 @@ class RoomsController extends Controller
         $relatedRooms = Room::withCount('bookings')->orderBy('bookings_count', 'desc')->take(3)->get();
 
         if($checkin != null && $checkout != null) {
-            $validCheck = (Room::whereDoesntHave('bookings', function($query) use ($checkin, $checkout) {
-                $query->whereBetween('check_out', [$checkin, $checkout])->orWhereBetween('check_in', [$checkin, $checkout])->orWhere(
-                    function($subquery) use ($checkin, $checkout) {
-                        $subquery->where('check_in', '<=', $checkin)->where('check_out', '>=', $checkout);
-                });
-            })->whereNot('status', 'maintenance')->where('id', $roomData->id)->get())->count() > 0;
+            $validCheck = $roomData->isAvailableOnInterval($checkin, $checkout);
         } else {
             $validCheck = false;
         }
 
-        return view('hotel.rooms-detail-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle,
-            'roomData' => $roomData, 'relatedRooms' => $relatedRooms, 'checkin' => $checkin, 'checkout' => $checkout, 'validCheck' => $validCheck]);
+        return view('hotel.rooms-detail-page', ['roomData' => $roomData, 'relatedRooms' => $relatedRooms, 'checkin' => $checkin, 'checkout' => $checkout, 'validCheck' => $validCheck]);
     }
 
     public function storeBooking($id, Request $request, PaymentService $payment) {

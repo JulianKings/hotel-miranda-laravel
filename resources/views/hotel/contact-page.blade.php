@@ -1,4 +1,9 @@
-@include('hotel.layout.head-component', ['styles' => $styles, 'scripts' => $scripts])
+@include('hotel.layout.head-component', [
+'styles' =>
+    ['./style/style.css', './style/pages/contact.css'],
+'scripts' =>
+    ['./scripts/menu.js', './scripts/socials.js']
+])
 
 @php
     if($errors->any()) {
@@ -7,7 +12,7 @@
 @endphp
 
 <body class="content">
-    @include('hotel.layout.header-component', ['title' => $title, 'subtitle' => $subtitle])
+    @include('hotel.layout.header-component', ['title' => 'New Details', 'subtitle' => 'Blog'])
 
     <main class="contact">
         <section class="contact__item-container">

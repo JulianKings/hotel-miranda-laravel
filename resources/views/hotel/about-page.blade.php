@@ -1,7 +1,12 @@
-@include('hotel.layout.head-component', ['styles' => $styles, 'scripts' => $scripts])
+@include('hotel.layout.head-component',
+['styles' =>
+    ['https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', './style/style.css', './style/pages/about.css'],
+'scripts' =>
+    ['./scripts/menu.js', './scripts/socials.js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', './scripts/optionsHover.js', './scripts/swiper-about.js']
+])
 
 <body class="content">
-    @include('hotel.layout.header-component', ['title' => $title, 'subtitle' => $subtitle])
+    @include('hotel.layout.header-component', ['title' => 'About Us', 'subtitle' => 'About'])
 
     <main class="about">
         <section class="about__video">

@@ -2,7 +2,7 @@
     <div class="header__content">
         <img src="{{URL::to('/');}}/assets/menu.png" class="header__content__menu" tabindex="1" alt="Menu" />
 
-        <div class="header__content__logo">
+        <a href="{{route('hotel.index')}}" class="header__content__logo">
             <div class="header__logo__icon-box">
                 <img src="{{URL::to('/');}}/assets/logo_icon.png" class="header__logo--small" alt="Logo Icon" />
                 <img src="{{URL::to('/');}}/assets/big-logo-icon.png" class="header__logo--big" alt="Logo Icon" />
@@ -11,7 +11,7 @@
                 <img src="{{URL::to('/');}}/assets/logo.png" class="header__logo--small" alt="Logo" />
                 <img src="{{URL::to('/');}}/assets/big-logo.png" class="header__logo--big" alt="Logo" />
             </div>
-        </div>
+        </a>
 
         <nav class="header__desktop-navlist">
             <ul>

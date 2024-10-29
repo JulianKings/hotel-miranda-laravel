@@ -8,12 +8,7 @@ use App\Models\Contact;
 class ContactController extends Controller
 {
     public function index() {
-        $styles = ['./style/style.css', './style/pages/contact.css'];
-        $scripts = ['./scripts/menu.js', './scripts/socials.js'];
-        $title = 'New Details';
-        $subtitle = 'Blog';
-
-        return view('hotel.contact-page', ['styles' => $styles, 'scripts' => $scripts, 'title' => $title, 'subtitle' => $subtitle]);
+        return view('hotel.contact-page');
     }
 
     public function store(Request $request)
