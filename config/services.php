@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'payment' => [
+        'stripe' => [
+            'key' => env('STRIPE_KEY'),
+            'secret' => env('STRIPE_SECRET'),
+        ],
+        'provider' => env('PAYMENT_PROVIDER'),
+    ],
+
 ];

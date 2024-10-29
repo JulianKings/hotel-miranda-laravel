@@ -3,5 +3,5 @@
 namespace App\Interfaces;
 
 interface PaymentService {
-    public function tryPayment($card): bool;
+    public function tryPayment($card, $amount): bool;
 }

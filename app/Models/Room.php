@@ -22,6 +22,11 @@ class Room extends Model
         return number_format((float)($this->originalPrice() * (1 - $this->offer / 100)), 2, '.', '');
     }
 
+    public function finalPriceCents()
+    {
+        return number_format((float)($this->price * (1 - $this->offer / 100)), 2, '.', '');
+    }
+
     public function isAvailable(): bool
     {
         return $this->isAvailableOnInterval(now(), now()->addDays(7));

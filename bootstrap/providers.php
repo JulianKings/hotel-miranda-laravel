@@ -2,5 +2,5 @@
 
 return [
     App\Providers\AppServiceProvider::class,
-    App\Providers\PaypalPaymentProvider::class,
+    App\Providers\PaymentProvider::class,
 ];

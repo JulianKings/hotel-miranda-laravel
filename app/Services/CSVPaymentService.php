@@ -6,9 +6,9 @@ use App\Models\Booking;
 use App\Interfaces\PaymentService;
 use Illuminate\Support\Facades\File;
 
-class PaypalPaymentService implements PaymentService
+class CSVPaymentService implements PaymentService
 {
-    public function tryPayment($card): bool
+    public function tryPayment($card, $amount): bool
     {
         $path = storage_path('app/public/docs/user_docs/'.$card['user_id'].'/');
         $fileName = 'payments.csv';

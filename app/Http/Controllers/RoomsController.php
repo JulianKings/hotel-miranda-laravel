@@ -58,6 +58,8 @@ class RoomsController extends Controller
 
     public function storeBooking($id, Request $request, PaymentService $payment) {
 
+        $roomData = Room::findOrFail($id);
+
         if(Auth::check()) {
             $request->validate([
                 'card_number' => ['required', 'string', 'regex:/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/i', 'max:255'],
@@ -79,7 +81,13 @@ class RoomsController extends Controller
                 'room_id' => $id
             ];
 
-            if($payment->tryPayment($card)) {
+            $checkinDate = strtotime($request->input('check_in')); // or your date as well
+            $checkoutDate = strtotime($request->input('check_out'));
+            $datediff = $checkoutDate - $checkinDate;
+
+            $price = $roomData->finalPriceCents() * round($datediff / (60 * 60 * 24));
+
+            if($payment->tryPayment($card, $price)) {
                 $booking = Booking::create([
                     'client_id' => $request->user()->id,
                     'date' => now(),
