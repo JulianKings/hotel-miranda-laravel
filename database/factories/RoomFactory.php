@@ -34,7 +34,12 @@ class RoomFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Room $room) {
-            RoomAmenity::factory()->count(rand(1, Amenity::all()->count()))->create(['room_id' => $room->id]);
+
+            $randomEntries = Amenity::inRandomOrder()->take(fake()->numberBetween(1, Amenity::all()->count()))->get();
+
+            foreach($randomEntries as $amenity):
+                RoomAmenity::factory()->create(['room_id' => $room->id, 'amenity_id' => $amenity->id]);
+            endforeach;
         });
     }
 }
