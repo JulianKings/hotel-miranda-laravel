@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Mail\MailableContact;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -30,6 +32,8 @@ class ContactController extends Controller
             'subject' => $request->input('subject'),
             'comment' => $request->input('message')
         ]);
+
+        Mail::to($contact->customer_mail)->send(new MailableContact());
 
         toastify()->success('Contact form sent succesfully!', ['position' => 'center', 'duration' => 8000]);
 

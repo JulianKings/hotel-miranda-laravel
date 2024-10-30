@@ -51,7 +51,7 @@
                             <div class="room-detail__calendar__form">
                                 <label for="card-number" class="room-detail__calendar__label">Card Number</label>
                                 <div class="room-detail__calendar__construct">
-                                    <input type="text" name="card_number" id="card-number" class="room-detail__calendar__special-input" placeholder="4343 4343 4343 4343" value="{{old('card_number')}}" />
+                                    <input type="text" name="card_number" id="card-number" class="room-detail__calendar__special-input" placeholder="5555555555554444" value="{{old('card_number')}}" />
                                 </div>
                                 @error ('card_number') <p class="room-detail__calendar__error">{{$message}}</p> @enderror
                             </div>
