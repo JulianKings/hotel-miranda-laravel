@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Interfaces\PaymentService;
 use Illuminate\Support\Facades\Auth;
 use App\Utils\RoomUtils;
+use App\Models\Payment;
 
 class RoomsController extends Controller
 {
@@ -96,6 +97,13 @@ class RoomsController extends Controller
                     'check_in' => Carbon::parse($request->input('check_in')),
                     'check_out' => Carbon::parse($request->input('check_out')),
                     'notes' => ''
+                ]);
+
+                $dataPayment = Payment::create([
+                    'client_id' => $request->user()->id,
+                    'room_id' => $id,
+                    'amount' => $price,
+                    'payment_type' => 'booking - card',
                 ]);
 
                 toastify()->success('Booking reserved succesfully!', ['position' => 'center']);
