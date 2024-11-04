@@ -12,10 +12,9 @@ class ContactController extends Controller
 {
     public function index() {
         $client = new Client();
-        $response = $client->request('GET', 'https://api.unsplash.com/search/photos?page=1&query=luxurious hotel', ['headers' => ['Authorization' => 'Client-ID ' . env('UNSPLASH_API_KEY')]]);
+        $response = $client->request('GET', 'https://api.unsplash.com/photos/random?query=luxurious hotel', ['headers' => ['Authorization' => 'Client-ID ' . env('UNSPLASH_API_KEY')]]);
         $data = json_decode($response->getBody()->getContents(), true);
-        $photos = $data['results'];
-        $firstPhoto = $photos[0]['urls']['regular'];
+        $firstPhoto = $data['urls']['regular'];
         if(!isset($firstPhoto)) {
             $firstPhoto  = URL::to('/').'/assets/hotel.png';
         }
