@@ -6,11 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Mail\MailableContact;
 use Illuminate\Support\Facades\Mail;
+use GuzzleHttp\Client;
 
 class ContactController extends Controller
 {
     public function index() {
-        return view('hotel.contact-page');
+        $client = new Client();
+        $response = $client->request('GET', 'https://api.unsplash.com/search/photos?page=1&query=luxurious hotel', ['headers' => ['Authorization' => 'Client-ID ' . env('UNSPLASH_API_KEY')]]);
+        $data = json_decode($response->getBody()->getContents(), true);
+        $photos = $data['results'];
+        $firstPhoto = $photos[0]['urls']['regular'];
+        if(!isset($firstPhoto)) {
+            $firstPhoto  = URL::to('/').'/assets/hotel.png';
+        }
+
+        return view('hotel.contact-page', ['photoUrl' => $firstPhoto]);
     }
 
     public function store(Request $request)

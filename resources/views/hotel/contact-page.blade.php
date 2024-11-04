@@ -55,7 +55,7 @@
         </section>
 
         <section class="contact__image">
-            <img src="{{URL::to('/');}}/assets/hotel.png" alt="Hotel Image" />
+            <img src="{{$photoUrl}}" alt="Hotel Image" />
         </section>
 
         <form method="post" action="{{ route('hotel.contact.store') }}" class="contact__form">
