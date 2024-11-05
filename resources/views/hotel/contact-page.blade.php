@@ -12,7 +12,7 @@
 @endphp
 
 <body class="content">
-    @include('hotel.layout.header-component', ['title' => 'New Details', 'subtitle' => 'Blog'])
+    @include('hotel.layout.header-component', ['title' => 'New Details!!!', 'subtitle' => 'Blog'])
 
     <main class="contact">
         <section class="contact__item-container">
