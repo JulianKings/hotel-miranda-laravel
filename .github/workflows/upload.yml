@@ -19,8 +19,8 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           sudo su
-          cd /var/www/html/hotel-miranda-laravel
-          git pull
+          cd /var/www/hotel-miranda-laravel
+          git pull origin main
           composer install
           php artisan migrate:fresh --seed --force
           php artisan cache:clear
