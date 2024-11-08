@@ -8,6 +8,7 @@ use App\Models\Room;
 use App\Models\Contact;
 use App\Models\Booking;
 use App\Models\RoomAmenity;
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +23,11 @@ class DatabaseSeeder extends Seeder
         User::factory()->primaryTestUser()->create();
         User::factory()->secondaryTestUser()->create();
         User::factory()->tertiaryTestUser()->create();
+
+        Admin::factory()->defaultDeveloper()->create();
+        Admin::factory()->defaultAdmin()->create();
+        Admin::factory()->defaultDuck()->create();
+        Admin::factory()->defaultTest()->create();
 
         $amenities = ['Air conditioner', 'Breakfast', 'Cleaning', 'Grocery', 'Shop near', '24/7 Online Support', 'Smart Security', 'High speed WiFi', 'Kitchen', 'Shower', 'Single bed', 'Towels', 'Strong locker', 'Expert Team'];
 
