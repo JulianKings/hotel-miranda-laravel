@@ -23,7 +23,7 @@ class RoomFactory extends Factory
             'type' => fake()->randomElements(['Single Bed', 'Double Bed', 'Double Superior', 'Suite'])[0],
             'floor' => 'Floor ' . fake()->randomElements(['A', 'B', 'C', 'D'])[0] . '-' . fake()->randomDigit(),
             'number' => fake()->numberBetween(0, 100),
-            'images' => 'http://ec2-18-171-148-183.eu-west-2.compute.amazonaws.com/assets/rooms'. fake()->numberBetween(1,6) .'.png',
+            'images' => 'http://137.74.42.255/assets/rooms'. fake()->numberBetween(1,6) .'.png',
             'price' => fake()->numberBetween(4000, 50000),
             'offer' => fake()->numberBetween(0, 80),
             'status' => fake()->randomElements(['booked', 'maintenance', 'available'])[0],

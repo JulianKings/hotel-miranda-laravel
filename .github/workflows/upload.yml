@@ -1,27 +1,27 @@
-name: Deploy to ec2
+# name: Deploy to ec2
 
-on:
-  pull_request:
-    types:
-    - closed
+#on:
+#  pull_request:
+#    types:
+#    - closed
 
-jobs:
-  deploy:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    steps:
-    - name: ssh deploy
-      uses: appleboy/ssh-action@v1.1.0
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          cd /var/www/hotel-miranda-laravel
-          sudo git fetch --all
-          sudo git pull origin main
-          sudo composer install
-          sudo php artisan migrate:fresh --seed --force
-          sudo php artisan cache:clear
-          sudo systemctl restart apache2
+#jobs:
+#  deploy:
+#    if: github.event.pull_request.merged == true
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: ssh deploy
+#      uses: appleboy/ssh-action@v1.1.0
+#      with:
+#        host: ${{ secrets.SSH_HOST }}
+#        username: ${{ secrets.SSH_USERNAME }}
+#        key: ${{ secrets.SSH_KEY }}
+#        port: ${{ secrets.SSH_PORT }}
+#        script: |
+#          cd /var/www/hotel-miranda-laravel
+#          sudo git fetch --all
+#          sudo git pull origin main
+#          sudo composer install
+#          sudo php artisan migrate:fresh --seed --force
+#          sudo php artisan cache:clear
+#          sudo systemctl restart apache2
